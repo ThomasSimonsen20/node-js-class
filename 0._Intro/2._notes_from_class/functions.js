@@ -43,3 +43,20 @@ interact(poke)
 // define a function inline in interact that does a new interaction
 //lambda syntax ellers gør det samme som ovenover
 interact(() => console.log("test"))
+
+
+/////////////////////////////////////////////////////////////
+//https://www.w3resource.com/javascript-exercises/javascript-functions-exercises.php
+
+//1. Write a function that reverse a number
+
+function reverseNumber(number) {
+    return (parseFloat(number.toString().split('').reverse().join('')) * Math.sign(number))
+}
+//console.log(reverseNumber(32243))
+
+//2. Write a javascript function that checks whether a passed string is palindrome or not
+
+function isPalindrome() {
+    
+}
