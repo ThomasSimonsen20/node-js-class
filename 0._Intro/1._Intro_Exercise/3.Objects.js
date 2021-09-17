@@ -14,11 +14,11 @@ console.log(myObj.message);
 
 // Create an object that has your name and age. 
 
-const me = {
-    "name": "Thomas Simonsen",
-    "age": 25
+const myself = {
+    name : "Thomas Simonsen",
+    age : 25
 };
-console.log(me);
+console.log(myself);
 
 // --------------------------------------
 // Exercise 3 - Add a property 
@@ -33,7 +33,7 @@ console.log(stackOverflow.isAllowed);
 // --------------------------------------
 // Exercise 4 - Remove a property 
 
-const thisSong = {"description": "The best song in the world."};
+const thisSong = {description : "The best song in the world."};
 
 // remove the property "description" and add a property called "about" that should say "Just a tribute." 
 

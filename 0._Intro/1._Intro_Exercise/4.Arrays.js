@@ -15,7 +15,8 @@ const friends = [];
 
 // What a lonely array. Add at least 3 friend objects to it.  
 
-friends.push(1, 2, 3, 4, 5);
+//friends.push(1, 2, 3, 4, 5);
+friends.push({ name: "thomas"}, {name: "john"}, {name: "test"})
 console.log(friends);
 // --------------------------------------
 // Exercise 3 - Get the index of first occurance of that value. 
@@ -52,6 +53,10 @@ console.log(diet);
 // You really like your daily diet from last exercise. Copy it to a new array called dinnerTray so you can give it to a friend.  
 
 const dinnerTray = diet.slice();
+
+//const dinnerTray = Array.from(diet);
+//const dinnerTray = [...diet]; (spread operator)
+
 console.log(dinnerTray);
 
 // --------------------------------------
