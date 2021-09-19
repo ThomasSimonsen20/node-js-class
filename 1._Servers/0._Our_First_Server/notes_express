@@ -1,0 +1,17 @@
+Express er et node web framework.
+    - Write handlers for requests with different HTTP verbs at different URL paths (routes).
+    - Integrate with "view" rendering engines in order to generate responses by inserting data into templates.
+    - Set common web application settings like the port to use for connecting, and the location of templates that are used for rendering the response
+    - Add additional request processing "middleware" at any point within the request handling pipeline
+
+require() importere express module and laver en express application, det object (app), har metoder til at route http requests, configuring middleware,
+rendering html views, + andre ting. 
+
+app.get viser en route definition, det er en metode der bliver kaldt når der er et http get request med den URL.
+
+listen er den port vi vil køre vores app på. 
+
+req is an object containing information about the HTTP request that raised the event. 
+In response to req, you use res to send back the desired HTTP response.
+
+res.send bruger vi til at sende vores result tilbage til brugeren.
