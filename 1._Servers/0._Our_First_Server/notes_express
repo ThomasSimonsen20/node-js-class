@@ -15,3 +15,6 @@ req is an object containing information about the HTTP request that raised the e
 In response to req, you use res to send back the desired HTTP response.
 
 res.send bruger vi til at sende vores result tilbage til brugeren.
+
+Json is the standard for data transfer, so I assume it's the apt datatype for a rest api to send. 
+
