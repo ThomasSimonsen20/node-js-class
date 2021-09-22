@@ -14,3 +14,8 @@ app.get("/dankmemes/:dankmemeID", (req, res) => {
 })
 
 app.listen(8080)
+
+//få lavet documentation på det.
+//collections navn = dankmemes.
+
+//bedste data type på vores server: JSON.fil med alle ens dankmemes.
