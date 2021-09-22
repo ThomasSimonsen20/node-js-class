@@ -1,6 +1,11 @@
-// const express = require("express");
-// const app = express();
-const app = require("express")();
+const express = require("express");
+const app = express();
+//const app = require("express")();
+//leder i note_modules når der ikke er ./
+
+app.use(express.json());
+
+const cake = require("./cake.json")
 
 app.get("/", (req, res) => {
     res.send({ mindIsBlown: true });
@@ -10,6 +15,13 @@ app.get("/", (req, res) => {
 // send back data (data type must be json)
 app.get("/adventureTime", (req, res) => {
     res.send({ adventure: "Time" });
+});
+
+//create a route on /frontpage that sends back a welcome message
+
+app.get("/getFrontPage", (req, res) => {
+    //res.send("Welcome"); sender kun string ikke object som nedenunder.
+    res.send({message: "Welcome"});
 });
 
 // path variable (with Spring syntax below)
@@ -33,6 +45,11 @@ app.get("/favoritenumber/:favoriteNumber", (req, res) => {
         number: req.params.favoriteNumber,
         nice: req.params.favoriteNumber < 5
     });
+});
+
+app.post("/messages", (req, res) => {
+    console.log(req.body);
+    res.send(req.body);
 });
 
 

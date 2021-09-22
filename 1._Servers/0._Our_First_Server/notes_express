@@ -8,6 +8,8 @@ require() importere express module and laver en express application, det object 
 rendering html views, + andre ting. 
 
 app.get viser en route definition, det er en metode der bliver kaldt når der er et http get request med den URL.
+app er vores server, .get = get request. "/welcome" = endpoint. resten = callback function. 
+callback tager imod request og response som min. og vier lov til at sende kode tilbage.
 
 listen er den port vi vil køre vores app på. 
 
@@ -17,4 +19,10 @@ In response to req, you use res to send back the desired HTTP response.
 res.send bruger vi til at sende vores result tilbage til brugeren.
 
 Json is the standard for data transfer, so I assume it's the apt datatype for a rest api to send. 
+
+Bedst altid at sende json tilbage, i vores callback metode.
+
+//npm install for at få .json package. skal ha lavet {} inde i en package.json fil allerede.
+//express er et bibliotek, som gør det let at arbejde med http ting.
+
 
