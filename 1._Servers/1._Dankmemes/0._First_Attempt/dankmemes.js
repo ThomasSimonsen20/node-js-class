@@ -1,6 +1,6 @@
 
 const app = require("express")()
-const memes = require("./memes.json")
+const memes = require("../memes.json")
 
 app.get("/dankmemes", (req, res) => {
     res.send(memes)
