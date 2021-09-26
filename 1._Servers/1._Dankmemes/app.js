@@ -2,6 +2,7 @@ const app = require("express")()
 const express = require("express")
 app.use(express.json())
 
+
 let memes = [
     {id: 1, name : "Drake Hotline Bling"},
     {id: 2, name : "Two buttons"},
@@ -24,47 +25,34 @@ app.get("/dankmemes/:id", (req, res) => {
     res.send(memes[req.params.id-1])
 })
 
-app.patch("/dankmemes/:id", (req, res) => {
-    memes.forEach(meme => {
-        if (meme.id == req.params.id) {
-            meme.name = req.body.name
-            res.sendStatus(201) 
-        }
-    })
-    res.sendStatus(404)
-}) 
 
-/*
+
 app.patch("/dankmemes/:id", (req, res) => {
     memes.forEach((meme, index) => {
         if (meme.id == req.params.id) {
-            meme.name = req.body.name
-            console.log(meme.name)
-            memes[index].name = meme.name
-            
+            memes[index].name = req.body.name
+            res.send(memes[index])
         }
     })
-    res.send({memes})
 }) 
 
 
-app.patch("/dankmemes/:id", (req, res) => {
-    memes.forEach((meme) => {
-        if(meme.id === req.params.id) {
-            memes[index] = req.body
-            res.send({memes})
-        }
-    })
+app.post("/dankmemes/", (req, res) => {
+    let id = memes.length +1
+    let meme = req.body.name
+    console.log(req.body.name)
+    memes.push({id: id, name : meme})
+    res.send(memes[id])
 })
-*/
+
+
 
 app.delete("/dankmemes/:id", (req, res) => {
-    const index = memes.indexOf(req.params.id)
+    const index = memes.map(meme => meme.id).indexOf(parseInt(req.params.id))
     if (index > -1) {
         memes.splice(index, 1)
     }
     res.send({memes})
-    console.log(memes)
 })
 
 
