@@ -1,0 +1,3 @@
+skriv html:5, så før du standard html info
+
+__dirname is absolute path

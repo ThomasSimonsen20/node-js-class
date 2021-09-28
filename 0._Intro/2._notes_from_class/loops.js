@@ -19,7 +19,7 @@ favoriteThings.forEach(favoriteThing => newFavoriteThings.push(`Ooh I like ${fav
 //console.log(favoriteThings)
 //console.log(newFavoriteThings)
  
-//map retunere en ny liste uden side effects.
+//map retunere en ny liste uden side effects. auto paralissers ens liste.
 const subjectiveFavoriteThings = favoriteThings.map(favoriteThing => (`Ooh I like ${favoriteThing}`));
 //console.log(subjectiveFavoriteThings);
 
