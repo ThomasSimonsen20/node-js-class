@@ -9,7 +9,7 @@ rendering html views, + andre ting.
 
 app.get viser en route definition, det er en metode der bliver kaldt når der er et http get request med den URL.
 app er vores server, .get = get request. "/welcome" = endpoint. resten = callback function. 
-callback tager imod request og response som min. og vier lov til at sende kode tilbage.
+callback tager imod request og response som min. og giver lov til at sende kode tilbage.
 
 listen er den port vi vil køre vores app på. 
 

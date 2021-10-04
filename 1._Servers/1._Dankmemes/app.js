@@ -1,5 +1,5 @@
-const app = require("express")()
-const express = require("express")
+const express = require("express");
+const app = express();
 app.use(express.json())
 
 
@@ -42,13 +42,14 @@ app.patch("/dankmemes/:id", (req, res) => {
     memes = memes.map(meme => {
         if (meme.id === Number(req.params.id)) {
             memeToUpdate =  { ...meme, ...req.body, id: meme.id }
-            return memeToUpdate
             ///... spread operator. Laver ny hvis variable ikke er der, overskrider hvis der er.
+            return memeToUpdate
         }
         return meme
     })
     memeToUpdate? res.send(memeToUpdate) : res.sendStatus(404)
 })
+
 //hans løsning
 
 
@@ -70,7 +71,7 @@ app.post("/dankmemes/", (req, res) => {
     //virker ikke så godt hvis man har sletter noget, så kan man få double id.
     let meme = req.body.name
     //meme.id = ++AUTO_INCREMENT
-    //++ før auto så laver den auto før værdien bliver assignet.
+    //++ før auto så den bliver incrementet før værdien bliver assignet.
     memes.push({id: id, name : meme})
     res.send(memes[id])
 })
