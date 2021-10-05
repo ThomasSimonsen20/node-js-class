@@ -1,3 +1,31 @@
 skriv html:5, så før du standard html info
 
 __dirname is absolute path
+
+port 8080 er en kendt http udviklingsport, basically default port.
+wellknown port = første 1024, resevered porte.
+port hvis man skal deploye, så er det port 80 med http.
+Miljøvariabler er udenfor koden. 
+PORT=3000 node app.js for at starte din app på port 3000.
+
+definere scripts/buildsteps i package.json
+npm run scriptnavn for at køre dit script i din package.json
+
+start-dev starter ens applikation
+npm install -save-dev cross-env
+//laver en devDependencies inde i din package.json fil.
+
+cross-env er et script, som kalder resten af ens start-dev script.
+process.env.PORT i listen for at starte på en anden port når du starter din app
+//f.eks. PORT=3000 nodemon app.js
+
+console.log(process.env)
+node kører i en process, env = enviroment.
+
+Man skal bruge express.static for at gøre at en browser kan se ens filer i den mappe.
+Det er en sikkerhedsfeature.
+
+a href er client redirecting
+
+2 metoder at sende data tilbage på i get.metoder
+path variabler og query string.

@@ -1,7 +1,13 @@
 {
-    
-"dependencies": { 
-    "express": "^4.17.1"
-  
-}
+    "scripts": {
+        "start-dev": "cross-env NODE_ENV=DEV PORT=8080 nodemon app.js",
+        "showdirectorycontent": "ls",
+        "showappcontent": "cat package.json"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "cross-env": "^7.0.3"
+    }
 }

@@ -1,0 +1,11 @@
+body {
+    background-color: green;
+}
+
+#title {
+    text-align: center;
+}
+
+.fact {
+    font-size: 2em;
+}
