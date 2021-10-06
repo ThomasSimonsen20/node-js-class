@@ -38,10 +38,15 @@
 }
 
 .image {
-    width: 15em;
+    /*width: 15em; */
+    padding: 1px;
+}
+
+.forBiggerImages {
+    width: 24em;
     padding: 1px;
 }
 
 .notes {
-    font-size: 12px;
+    font-size: 15px;
 }
