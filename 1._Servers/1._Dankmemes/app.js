@@ -23,11 +23,11 @@ app.get("/dankmemes", (req, res) => {
 })
 
 app.get("/dankmemes/:id", (req, res) => {
-    const meme = memes.find(dankmeme => dankmeme.id === Number(req.params.id))
+    const meme = memes.find
+    (dankmeme => dankmeme.id === Number(req.params.id))
     meme ? res.send(meme) : res.sendStatus(404)
-    //sender meme hvis den er true.
 })
-
+ //sender meme hvis den er true.
 /*
 app.get("/dankmemes/:id", (req, res) => {
     res.send(memes[req.params.id-1])
@@ -68,14 +68,12 @@ app.patch("/dankmemes/:id", (req, res) => {
 
 app.post("/dankmemes/", (req, res) => {
     let id = memes.length +1
-    //virker ikke så godt hvis man har sletter noget, så kan man få double id.
     let meme = req.body.name
-    //meme.id = ++AUTO_INCREMENT
-    //++ før auto så den bliver incrementet før værdien bliver assignet.
     memes.push({id: id, name : meme})
     res.send(memes[id])
 })
-
+//meme.id = ++AUTO_INCREMENT
+    //++ før auto så den bliver incrementet før værdien bliver assignet.
 
 /*
 app.delete("/dankmemes/:id", (req, res) => {
@@ -96,10 +94,11 @@ app.delete("/dankmemes/:id", (req, res) => {
         if(!notToDelete) foundMeMeToDelete = true
         return notToDelete
     })
-    //filter køre igennem array sætter de værdier der ikke er lig med id ind i nyt memes array.
     foundMeMeToDelete ? res.sendStatus(200) : res.sendStatus(404)
-    //hvis der er fundet en meme at slette, retunere den 200, ellers 404.
 })
+
+//filter køre igennem array sætter de værdier der ikke er lig med id ind i nyt memes array.
+//hvis der er fundet en meme at slette, retunere den 200, ellers 404.
 //hans løsning med filter.
 
 app.listen(8080, (error) => {
