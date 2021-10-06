@@ -1,7 +1,7 @@
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
     grid-template-rows: 1fr 1fr;
     margin-left: 60px;
     margin-right: 60px;
@@ -16,6 +16,8 @@
     padding: 5px 15px 5px 15px;
     background-color: white;
     align-items: center;
+    position: relative;
+    height: 18rem;
 }
 
 .titleContainer {
@@ -47,6 +49,16 @@
     padding: 1px;
 }
 
+.forSmallerImages {
+    width: 24em;
+    padding: 1px;
+    margin-top: 21px;
+}
+
 .notes {
     font-size: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    margin-right: 5px;
 }
