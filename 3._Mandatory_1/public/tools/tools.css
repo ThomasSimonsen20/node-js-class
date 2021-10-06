@@ -35,7 +35,7 @@
 .title {
     margin: 2px;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .image {
@@ -44,5 +44,5 @@
 }
 
 .notes {
-    font-size: 12px;
+    font-size: 20px;
 }

@@ -55,6 +55,17 @@
     margin-top: 21px;
 }
 
+.forDoubleImages {
+    width: 20rem;
+    padding: 1px;
+}
+
+.deleteImage {
+    width: 24em;
+    padding: 1px;
+    margin-top: 20px;
+}
+
 .notes {
     font-size: 15px;
     position: absolute;
