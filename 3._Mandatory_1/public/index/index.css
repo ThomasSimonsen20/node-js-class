@@ -10,7 +10,6 @@
 .informationContainer {
     display: flex;
     flex-direction: column;
-    width: 750px;
     border: #8EB7C5 4px solid;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
