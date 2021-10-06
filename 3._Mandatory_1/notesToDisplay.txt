@@ -1,12 +1,12 @@
 1. Express
-    - app.get
-    - app.post
-    - app.delete
-    - app.patch
-    - Hvordan man implemtere express ind i app object.
-    - Sender filer gennem express
-    - App.listen
-    - json package (npm install express)
+    - app.get x
+    - app.post x
+    - app.delete x
+    - app.patch x
+    - Hvordan man implemtere express ind i app object. x
+    - Sender filer gennem express x
+    - App.listen x
+    - json package (npm install express) x
 
 2. de generale ting fra intro
     - functions
@@ -15,15 +15,15 @@
     - variables
 
 3. tool der bliver benyttet
-    - node.js
+    - node.js x
     //når vi downloader node.js, får vi npm med, som vi benytter til at downloade forskellige ting, som f.eks. experss.
-    - npm (node package manager)
-    - json
+    - npm (node package manager) x
+    - json x
     //json bruger vi en del sammen med express, til at sende filer frem og tilbage. Det er den fortrukte datatype at sende informationer med.
-    - nodemon
+    - nodemon x
     //bliver downloaded med npm, og kan benyttet ved at skrive nodemon filnavn, for at hele tiden havde en application kørene. 
     //npm install -g nodemon (-g for global)
-    - install express?
+    - install express? x
     //npm install experss, hvis vi laver en json.package fil med {}, kan vi derefter automatisk få de package og modules vi skal bruge for at køre express.
 
 

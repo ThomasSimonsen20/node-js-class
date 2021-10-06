@@ -1,0 +1,51 @@
+.fundamentalsContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.infomationContainerFundamentals {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+}
+
+.titleContainer {
+    border: #8EB7C5 4px solid;
+    border-radius: 10px;
+    padding: 5px 15px 5px 15px;
+    background-color: white;
+    align-items: center;
+}
+
+.informationContainerLink {
+    text-decoration: none;
+    color: black;
+}
+
+.title {
+    margin: 2px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.smallerTitle {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.image {
+    width: 15em;
+    padding: 1px;
+}
+
+
+.notes {
+    font-size: 12px;
+    margin-top: 2px;
+}

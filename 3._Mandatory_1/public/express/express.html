@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Express</title>
+    <link rel="stylesheet" href="../global_stylesheet/myStylesheet.css">
+    <link rel="stylesheet" href="./express.css">
+
+</head>
+<body class="body">
+
+    <div class="header">
+        <div id="topnav_path">
+            <a class="header_button" href="/">Home</a>
+            <a class="header_button_active" href="/express">Express</a>
+            <a class="header_button" href="/tools">Tools</a>
+            <a class="header_button" href="/fundamentals">Fundamentals</a>
+            <a class="header_button" href="/leftoverNotes">Leftover Notes</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="informationContainer">
+            <h1 class="title">express</h1>
+            <img class="image" src="../images/expressBilede.PNG">
+            <p class="notes">
+                - Express er et node web framework, som gør det let at arbedje med HTTP i node. <br>
+                - Vi laver en express variable, som vi sætter express bibloteket til. <br>
+                - Derefter laver en app variable, som vi sætter værdien express() functionen. <br>
+                - Kan lave det en oneliner, men hvis vi skal benytte .use, kræver det vi har sat app værdien til express().
+            </p>
+        </div>
+
+        <div class="informationContainer">
+            <h1 class="title">app.listen</h1>
+            <img class="image" src="../images/app.listen.PNG">
+            <p class="notes">
+                - .listen giver os mulighed for at sætte den port vi vil køre vores server på. <br>
+                - Man kan godt bare skrive porten, men det er meget rart, at havde en lille function, der siger i consolen hvad port vi køre på.<br>
+            </p>
+        </div>
+
+        <div class="informationContainer">
+            <h1 class="title">app.use</h1>
+            <img class="image" src="../images/app.use.PNG">
+            <p class="notes">
+                - app.use(middleware) er noget der bliver kaldt, hver gang der er en requests til serveren.
+                Vi har brugt app.use til express.json og express.static <br>
+                - app.use(express.json()), parser indgående requests om til JSON.<br>
+                - app.use(express.static('mappeNavn')), er en sikkerhedsfeature, der gør at en browser kun kan se de filer man har givet lov til. 
+            </p>
+        </div>
+
+        <div class="informationContainer">
+            <h1 class="title">app.get</h1>
+            <img class="image" src="../images/app.get.jpg">
+            <img class="image" src="../images/app.get1.PNG">
+            <p class="notes">
+                - .get er en http get request <br>
+                - Bruges til f.eks. at sende informationer til client, kan være html filer, json objekter osv.. <br>
+                - Kan sende JSON object baseret på ID, eller sende et helt array <br>
+                - Hvis vi skulle sende filer igennem .get, ville vi skrive res.sendFile(__dirname + "/path")
+            </p>
+        </div>
+        
+        <div class="informationContainer">
+            <h1 class="title">app.patch</h1>
+            <img class="image" src="../images/app.patch.PNG">
+            <p class="notes">
+                - .patch er en http patch request <br>
+                - Bruges til at update en del af ens JSON object. <br>
+                - F.eks. hvis vi vil updatere en memes, kan vi finde en memes vi vil update med ID, og derefter ændre den meme uden at ændre ID.
+            </p>
+        </div>
+
+        <div class="informationContainer">
+            <h1 class="title">app.post</h1>
+            <img class="image" src="../images/app.post.PNG">
+            <p class="notes">
+                - .post er en http post request <br>
+                - Bruges til at create JSON object(primært)<br>
+                - Får automatisk givet et ID, så skal kun give de informationer der skal være i objektet.
+            </p>
+        </div>
+
+        <div class="informationContainer">
+            <h1 class="title">app.delete</h1>
+            <img class="image" src="../images/app.delete.PNG">
+            <p class="notes">
+                - .delete er en http delete request <br>
+                - Bruges til at delete JSON object<br>
+                - Vi tager et ID parameter, som vi så laver et loop på, for at finde den rigtige memes, som så bliver slettet fra vores array.
+            </p>
+        </div>
+
+
+
+
+    </div>
+    
+</body>
+</html>
