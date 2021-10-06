@@ -29,11 +29,11 @@
 .title {
     margin: 2px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 
 .smallerTitle {
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -46,6 +46,12 @@
 
 
 .notes {
-    font-size: 12px;
+    font-size: 16px;
     margin-top: 2px;
+}
+
+.varNotes {
+    font-size: 16px;
+    margin-top: 2px;
+    text-align: center;
 }
