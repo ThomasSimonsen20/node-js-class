@@ -10,7 +10,7 @@
 .informationContainer {
     display: flex;
     flex-direction: column;
-    /*width: 415px;*/
+    width: 750px;
     border: #8EB7C5 4px solid;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
@@ -42,11 +42,11 @@
 }
 
 .imageIndex {
-    width: 15em;
+    width: 20em;
     padding: 1px;
-    height: 125px;
+    height: 200px;
 }
 
 .notes {
-    font-size: 12px;
+    font-size: 20px;
 }
