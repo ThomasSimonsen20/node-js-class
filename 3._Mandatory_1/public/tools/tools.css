@@ -1,17 +1,18 @@
 
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     grid-template-rows: 1fr 1fr;
     margin-left: 60px;
     margin-right: 60px;
+    justify-items: center;
 }
 
 .informationContainer {
     display: flex;
     flex-direction: column;
-    /*width: 415px;*/
+    width: 65vh;
     border: #8EB7C5 4px solid;
     border-radius: 10px;
     padding: 5px 15px 5px 15px;
