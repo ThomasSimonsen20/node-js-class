@@ -14,16 +14,20 @@ favoriteThings.forEach((favoriteThing, index) => {
 */
 
 const newFavoriteThings = [];
-favoriteThings.forEach(favoriteThing => newFavoriteThings.push(`Ooh I like ${favoriteThing}`));
+
+favoriteThings.forEach(favoriteThing => newFavoriteThings
+    .push(`Ooh I like ${favoriteThing}`));
 
 //console.log(favoriteThings)
 //console.log(newFavoriteThings)
  
 //map retunere en ny liste uden side effects. auto paralissers ens liste.
-const subjectiveFavoriteThings = favoriteThings.map(favoriteThing => (`Ooh I like ${favoriteThing}`));
+const subjectiveFavoriteThings = favoriteThings
+.map(favoriteThing => (`Ooh I like ${favoriteThing}`));
 //console.log(subjectiveFavoriteThings);
 
 //console.log(favoriteThings.find(420))
 
-const longFavoriteThings = favoriteThings.filter(favoriteThing => favoriteThing.length > 3);
+const longFavoriteThings = favoriteThings
+.filter(favoriteThing => favoriteThing.length > 3);
 //console.log(longFavoriteThings);
