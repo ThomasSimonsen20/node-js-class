@@ -9,18 +9,24 @@
 </head>
 <body>
 
-    <form>
-        <input type="text" id="input" placeholder="country Name" required>
-        <input type="button" onclick="fetchCountry(document.getElementById('input').value)">
-    </form>
-
-    
-    <div>
-        <h1 id="country">Country: </h1>
-        <h1 id="confirmed">Total confirmed: </h1>
-        <h1 id="deaths">Total Deaths: </h1>
+    <div class="formContainer">
+        <form class="form">
+            <input type="text" id="input" placeholder="country Name" required>
+            <input type="button" onclick="fetchCountry(document.getElementById('input').value)" value="submit">
+        </form>
     </div>
 
+    <table>
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>confirmed cases</th>
+                <th>total deaths</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
 
     <script src="api_page.js"></script>
 
