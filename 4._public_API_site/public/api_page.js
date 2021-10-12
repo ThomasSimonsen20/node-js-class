@@ -1,7 +1,7 @@
 const tbody = document.querySelector('tbody')
 
 function fetchCountry(countryName) {
-    fetch("https://covid-api.mmediagroup.fr/v1/cases?country=" + countryName)
+    fetch("https://covid-api.mmediagroup.fr/v1/cases?country=" + firstLetterBig(countryName))
     .then(response => response.json())
     .then(result => {
         tbody.innerHTML += 
@@ -14,6 +14,12 @@ function fetchCountry(countryName) {
         `;
 
     })
+}
+
+function firstLetterBig(str) {
+    const strLowerCase = str.toLowerCase()
+    const strFirstLetterUpperCase = strLowerCase.charAt(0).toUpperCase() + strLowerCase.slice(1)
+    return strFirstLetterUpperCase
 }
 
 
