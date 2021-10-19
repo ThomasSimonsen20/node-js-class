@@ -1,0 +1,26 @@
+{
+  "name": "nodefolio",
+  "version": "0.0.1",
+  "description": "A personal portfolio",
+  "main": "app.js",
+  "scripts": {
+    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasSimonsen20/node-js-class.git"
+  },
+  "author": "Thomas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomasSimonsen20/node-js-class/issues"
+  },
+  "homepage": "https://github.com/ThomasSimonsen20/node-js-class#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

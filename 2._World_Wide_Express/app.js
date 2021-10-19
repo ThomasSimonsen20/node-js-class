@@ -3,6 +3,7 @@ const app = express()
 
 app.use(express.static('public'))
 
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/public/frontpage/index.html")
@@ -25,6 +26,7 @@ app.get("/creditor", (req,res) => {
     res.send({ message: "You are indebted and you won't get what you want."})
 })
 
+//server
 app.get("/sausage", (req, res) => {
     if (Number(req.query.money) > 25) {
         res.send({ message: "You bought a sausage"})
@@ -32,6 +34,19 @@ app.get("/sausage", (req, res) => {
         res.redirect("creditor")
     }
 })
+
+//Create an endpoint called /proxy and fecth google homepage and send it to the client.
+
+app.get("/proxy", async (req, res) => {
+    // fetch("https://www.google.com")
+    // .then(response => response.text())
+    // .then(result => res.send(result))
+    const response = await fetch("https://www.google.com")
+    const result = await response.text()
+    res.send(result)
+})
+
+
 //server side redirection
 
 // task allow the developer setting the port
@@ -47,3 +62,4 @@ app.listen(PORT, (error) => {
     }
     console.log("Server is running on port", PORT)
 })
+

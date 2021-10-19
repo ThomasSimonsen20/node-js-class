@@ -1,0 +1,29 @@
+Callback er løstning til alt synchronous adfærd.
+
+
+Why:
+- Since Javascript is single-threaded(everything runs on the main thread)
+- we want to avoid blocking
+
+
+Asynchronous code: when
+- requesting (over a network)
+- database
+- user input
+- (input/output) file handling
+
+For at ondgå pyramid of doom og callback hell, så bruger vi promises.
+
+
+Promise states:
+- pending (igang med at blive udført.)
+- fulfilled
+    - resolved
+    - rejected
+
+Hvis man bruger resolve gik alt godt
+Hvis man bruger reject gik alt dårligt.
+
+Promise er ikke bedre end callbacks(promises er callbacks under the hood.)
+
+async await bygger på promises som bygger på callbacks.

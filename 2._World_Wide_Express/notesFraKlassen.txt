@@ -29,3 +29,5 @@ a href er client redirecting
 
 2 metoder at sende data tilbage på i get.metoder
 path variabler og query string.
+
+npm init for at give en node template

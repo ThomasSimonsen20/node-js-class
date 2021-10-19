@@ -5,7 +5,8 @@
         "showappcontent": "cat package.json"
     },
     "dependencies": {
-        "express": "^4.17.1"
+        "express": "^4.17.1",
+        "node-fetch": "^3.0.0"
     },
     "devDependencies": {
         "cross-env": "^7.0.3"
