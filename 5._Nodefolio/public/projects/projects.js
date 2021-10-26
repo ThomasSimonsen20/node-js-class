@@ -1,0 +1,25 @@
+const copyrightElement = document.getElementById("copyright-year");
+copyrightElement.innerText = `© ${new Date().getFullYear()}`;
+
+
+
+fetch("/api/projects")
+.then(response => response.json())
+.then(({ projects }) => { //({ destructor object, så vi lettere kan hjælpe de forskellige informationer.})
+    // group the projects by category (reduce?)
+
+    const projectWrapper = document.getElementById('projects-wrapper')
+
+    projects.map(project => {
+        const projectDiv = document.createElement("div")
+        projectDiv.innerHTML = `
+            <h3>${escapeHTML(project.name)}</h3>
+            <p>${escapeHTML(project.category)}</p>
+            <p>Technologies: ${escapeHTML(project.technologies.join(", "))}</p>
+            <p>Links: .....</p>
+        `
+
+        projectWrapper.appendChild(projectDiv)
+
+    })
+})

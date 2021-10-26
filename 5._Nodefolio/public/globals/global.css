@@ -1,0 +1,53 @@
+.header {
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    align-items: center;
+}
+
+.header #topnav_path {
+    position: absolute;
+
+}
+
+.header #topnav_path a:hover {
+    border-bottom: rgba(161, 161, 161, 0.54) 2px solid;
+    transition: 0.3s;
+}
+
+.header_project_title {
+    font-size: 30px;
+}
+
+.header_button {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 5px 0 5px;
+}
+
+.header_button_active {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 5px 0 5px;
+    border-bottom: #ffffff 2px solid;
+
+}
+
+.body {
+    background-color: #222;
+    
+}
+
+main {
+    min-height: calc(100vh - 200px);
+}
+
+.logo-image {
+    width: 2rem;
+    height: 2rem;
+}

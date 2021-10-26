@@ -1,0 +1,7 @@
+Vores router er vores backend I guess..
+
+Vi bruger escapeHTML er for sikkerhed, så vi undgår folk kan lave scripts på ens side.
+
+pages & components
+
+components har nav og footer

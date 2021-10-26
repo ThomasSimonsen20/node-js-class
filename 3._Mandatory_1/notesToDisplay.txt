@@ -27,3 +27,5 @@
     //npm install experss, hvis vi laver en json.package fil med {}, kan vi derefter automatisk få de package og modules vi skal bruge for at køre express.
 
 
+ikke ligge node_modules, samt idea og vcs filer op på github.
+
