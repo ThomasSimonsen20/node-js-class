@@ -1,8 +1,3 @@
-const copyrightElement = document.getElementById("copyright-year");
-copyrightElement.innerText = `© ${new Date().getFullYear()}`;
-
-
-
 fetch("/api/projects")
 .then(response => response.json())
 .then(({ projects }) => { //({ destructor object, så vi lettere kan hjælpe de forskellige informationer.})
