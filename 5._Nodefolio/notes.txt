@@ -5,3 +5,34 @@ Vi bruger escapeHTML er for sikkerhed, så vi undgår folk kan lave scripts på 
 pages & components
 
 components har nav og footer
+
+vi laver en nodemon.json fil til at starte serveren når html ændre sig også.
+
+%%crap%% er en placeholder syntax, kan være w/e.
+
+hverfil er et module
+
+path er et module man kan bruge hvis man får forbidden error.
+path.join
+
+
+options ? options.title : "nodefolio"
+- Hvis options er defineret tager den options.title ellers : nodefolio
+
+options?.title || "nodefolio" gør det samme.
+console.log(object?.innerKey?.detete?.arero?)
+
+JSON.stringify er godt?
+
+app.use(express.urlencoded({ extended: true}))
+extended true kan den parser mange datatyper, false = string n stuff.
+
+/*
+const fs = require("fs")
+const header = fs.readFileSync("./public/globals/components/header/header.html", "utf-8")
+const footer = fs.readFileSync("./public/globals/components/footer/footer.html", "utf-8")
+const frontpage = fs.readFileSync("./public/frontpage/frontpage.html", "utf-8")
+const projects = fs.readFileSync("./public/projects/projects.html", "utf-8")
+const cv = fs.readFileSync("./public/cv/cv.html", "utf-8")
+const contact = fs.readFileSync("./public/contact/contact.html", "utf-8")
+*/

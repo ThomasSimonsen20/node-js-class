@@ -3,34 +3,40 @@ const app = express()
 
 app.use(express.static('public'))
 
-const projectsRouter = require("./routers/projects")
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
 
-const fs = require("fs")
+const { createPage } = require("./render.js")
+
+const projectsRouter = require("./routers/projects.js")
+const pageRouter = require("./routers/pages.js")
+const contactRouter = require("./routers/contact.js")
+
 app.use(projectsRouter.router)
+app.use(pageRouter.router)
+app.use(contactRouter.router)
 
-const header = fs.readFileSync("./public/globals/components/header/header.html", "utf-8")
-const footer = fs.readFileSync("./public/globals/components/footer/footer.html", "utf-8")
-
-const frontpage = fs.readFileSync("./public/frontpage/frontpage.html", "utf-8")
-const projects = fs.readFileSync("./public/projects/projects.html", "utf-8")
-const cv = fs.readFileSync("./public/cv/cv.html", "utf-8")
-const contact = fs.readFileSync("./public/contact/contact.html", "utf-8")
+/* Ready the pages */
+const frontpagePage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome"})
+const projectsPage = createPage("projects/projects.html")
+const cvPage = createPage("cv/cv.html")
+const contactPage = createPage("contact/contact.html")
 
 
 app.get("/", (req, res) => {
-    res.send(header + frontpage + footer)
+    res.send(frontpagePage)
 })
 
 app.get("/projects", (req, res) => {
-    res.send(header + projects + footer)
+    res.send(projectsPage)
 })
 
 app.get("/cv", (req, res) => {
-    res.send(header + cv + footer)
+    res.send(cvPage)
 })
 
 app.get("/contact", (req, res) => {
-    res.send(header + contact + footer)
+    res.send(contactPage)
 })
 
 
