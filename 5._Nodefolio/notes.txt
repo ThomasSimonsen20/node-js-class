@@ -27,6 +27,8 @@ JSON.stringify er godt?
 app.use(express.urlencoded({ extended: true}))
 extended true kan den parser mange datatyper, false = string n stuff.
 
+less secure app gmail
+
 /*
 const fs = require("fs")
 const header = fs.readFileSync("./public/globals/components/header/header.html", "utf-8")
