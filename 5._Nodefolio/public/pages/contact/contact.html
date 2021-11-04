@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="../pages/contact/contact.css">
+    <link rel="stylesheet" href="../assets/global.css">
+
+</head>
+<body>
+
+<main>
+    
+    <div class="form-container">
+        <div class="form">
+            <form method="POST" action="/api/contact">
+                <label class="label">Contact form</label>
+                <div class="input-container">
+                    <input name="name" type="text" placeholder="name" id="name">
+                </div>
+                <div class="input-container">
+                    <input name="email" type="email" placeholder="email" id="email">
+                </div>
+                <textarea name="message" placeholder="message" cols="20" rows="10" id="message"></textarea>
+                <button class="btn" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+
+    
+</main>
+</body>
+</html>

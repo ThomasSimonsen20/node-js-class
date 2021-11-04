@@ -1,0 +1,74 @@
+.form-container {
+    
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 40rem;
+    padding: 20px;
+    width: 40rem;
+}
+
+.label {
+    font-weight: 800;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+textarea {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 22rem;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+    margin-top: 1rem;
+    resize: none;
+}
+
+.btn {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 3rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}
