@@ -20,7 +20,7 @@ router.post("/api/contact", (req,res) => {
         secure: false, // true for 465, false for other ports
         auth: {
           user: "nodemailertest202@gmail.com", // generated ethereal user
-          pass: "nodemailer20", // generated ethereal password
+          pass: "nodemailer", // generated ethereal password
         },
     });
     
