@@ -2,7 +2,7 @@
 }
 
 .header-container {
-    height: 88vh;
+    height: 87.8vh;
     background-image: linear-gradient(to right bottom,
     hsla(224, 55%, 64%, 0.8),
     hsla(197, 64%, 43%, 0.8)),
@@ -13,7 +13,6 @@
     width: 100%;
 
 }
-
 
 .main {
     margin-top: 0;
