@@ -6,7 +6,7 @@
     background-image: linear-gradient(to right bottom,
     hsla(224, 55%, 64%, 0.8),
     hsla(197, 64%, 43%, 0.8)),
-    url("./frontpagePicture.jpg");
+    url("/../assets/frontpagePicture.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
