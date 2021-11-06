@@ -19,8 +19,8 @@ router.post("/api/contact", (req,res) => {
         port: 587,
         secure: false, 
         auth: {
-          user: "nodemailertest202@gmail.com", 
-          pass: "nodemailer20", 
+          user: "nodemailertest202@gmail.com", // generated ethereal user
+          pass: "nodemailer", // generated ethereal password
         },
     });
     
