@@ -1,0 +1,7 @@
+Vi bruger sqlite, npm i sqlite sqlite3.
+
+{ } = destuctore
+
+"type": "module",
+i package.json når vi skal ha modules i backend.
+vi skal bruge import i vores app når vi har type module.

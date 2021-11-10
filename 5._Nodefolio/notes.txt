@@ -38,3 +38,7 @@ const projects = fs.readFileSync("./public/projects/projects.html", "utf-8")
 const cv = fs.readFileSync("./public/cv/cv.html", "utf-8")
 const contact = fs.readFileSync("./public/contact/contact.html", "utf-8")
 */
+
+skal sende vores data som string, så vi bruger json.stringify
+
+toastr biblotik

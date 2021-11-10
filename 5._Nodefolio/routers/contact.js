@@ -3,6 +3,7 @@ const nodemailer = require("nodemailer");
 
 router.post("/api/contact", (req,res) => {
 
+    console.log(req.body.name)
     const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
@@ -32,7 +33,8 @@ router.post("/api/contact", (req,res) => {
         html: output, 
     });
     
-    res.redirect("/contact")
+    //res.redirect("/contact")
+    res.send()
 })
 
 module.exports = {

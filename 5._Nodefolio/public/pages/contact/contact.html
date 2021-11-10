@@ -5,7 +5,8 @@
 
     <div class="form-container">
         <div class="form">
-            <form method="POST" action="/api/contact">
+            <!-- <form method="POST" action="/api/contact"> -->
+            <div>
                 <label class="label">Contact form</label>
                 <div class="input-container">
                     <input name="name" type="text" placeholder="name" id="name">
@@ -14,8 +15,9 @@
                     <input name="email" type="email" placeholder="email" id="email">
                 </div>
                 <textarea name="message" placeholder="message" cols="20" rows="10" id="message"></textarea>
-                <button class="btn" type="submit">Send</button>
-            </form>
+                <button id="contact-button" class="btn">Send</button>
+            </div>
         </div>
     </div>
 
+<script src="../pages/contact/contact.js"></script>
