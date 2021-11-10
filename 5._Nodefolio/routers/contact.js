@@ -1,5 +1,13 @@
+/*
 const router = require("express").Router()
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer"); */
+
+import express from "express"
+const router = express.Router()
+
+import nodemailer from 'nodemailer'
+
+
 
 router.post("/api/contact", (req,res) => {
 
@@ -21,7 +29,7 @@ router.post("/api/contact", (req,res) => {
         secure: false, 
         auth: {
           user: "nodemailertest202@gmail.com", // generated ethereal user
-          pass: "nodemailer", // generated ethereal password
+          pass: "nodemailer20", // generated ethereal password
         },
     });
     
@@ -33,10 +41,13 @@ router.post("/api/contact", (req,res) => {
         html: output, 
     });
     
-    //res.redirect("/contact")
     res.send()
 })
 
+
+export default router
+/*
 module.exports = {
     router
 }
+*/
