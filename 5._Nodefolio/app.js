@@ -35,8 +35,12 @@ app.use(contactRouter)
 /* Ready the pages */
 const frontpagePage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome"})
 const projectsPage = createPage("projects/projects.html")
+const createProjectPage = createPage("dashboard/createProject.html")
+const updateProjectPage = createPage("dashboard/updateProject.html")
 const cvPage = createPage("cv/cv.html")
 const contactPage = createPage("contact/contact.html")
+const dashboardPage = createPage("dashboard/dashboard.html")
+
 
 
 app.get("/", (req, res) => {
@@ -55,7 +59,17 @@ app.get("/contact", (req, res) => {
     res.send(contactPage)
 })
 
+app.get("/dashboard", (req, res) => {
+    res.send(dashboardPage)
+})
 
+app.get("/createProject", (req, res) => {
+    res.send(createProjectPage)
+})
+
+app.get("/updateProject", (req, res) => {
+    res.send(updateProjectPage)
+})
 
 
 const PORT = process.env.PORT || 8080;

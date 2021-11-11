@@ -5,24 +5,12 @@ const router = express.Router()
 
 import { connectSqlite } from "../database/connectSqlite.js";
 
-const projects = [ 
-    { name: "Node.js Recap", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
-    { name: "Nodefolio", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
-    { name: "3rd semester project", category: "Java", language: "Java", technologies: ["Java", "Thymeleaf", "CSS", "MySQL"]}
-]
-
-/*
-router.get("/api/projects", (req,res) => {
-    res.send({projects})
-}) */
-
 router.get("/api/projects", async (req,res) => {
     const dbConnection = await connectSqlite()
     const projects = await dbConnection.all('SELECT * FROM projects')
 
     res.send(projects)
 }) 
-
 
 router.post("/api/projects", async (req, res) => {
     const dbConnection = await connectSqlite()
@@ -39,11 +27,38 @@ router.post("/api/projects", async (req, res) => {
 })
 
 
+router.delete("/api/projects", async (req, res) => {
+    const dbConnection = await connectSqlite()
+    const id = req.body.id
+    //console.log(id)
+    dbConnection.run('DELETE FROM projects WHERE id=?', id)
+
+    res.send()
+})
+
+router.get("/api/project", async (req, res) => {
+    const dbConnection = await connectSqlite()
+    const id = req.body.id
+    //console.log(id)
+    dbConnection.get('SELECT * FROM projects WHERE id=?', id)
+
+    res.send()
+})
+
+
+
+
 export default router
 
+
 /*
+const projects = [ 
+    { name: "Node.js Recap", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
+    { name: "Nodefolio", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
+    { name: "3rd semester project", category: "Java", language: "Java", technologies: ["Java", "Thymeleaf", "CSS", "MySQL"]}
+]
 
-module.exports = {
-    router
-} */
 
+router.get("/api/projects", (req,res) => {
+    res.send({projects})
+}) */
