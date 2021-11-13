@@ -66,6 +66,24 @@ function update(value) {
 
 }
 
+function updateProject() {
+    fetch("/api/projects", {
+        method: "PUT",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            id: document.getElementById("id").value,
+            name: document.getElementById("name").value,
+            category: document.getElementById("category").value,
+            technologies: document.getElementById("technologies").value,
+            githubLink: document.getElementById("githubLink").value,
+        })}).then(response => {
+        if (response.status === 200) {
+            window.location.href = "http://localhost:8080/dashboard"
+        } else {
+            console.log("Error sending the contact message", response.status);
+        }
+    });
+}
   
 
 function createProject() {

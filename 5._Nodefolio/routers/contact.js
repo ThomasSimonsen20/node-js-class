@@ -7,8 +7,6 @@ const router = express.Router()
 
 import nodemailer from 'nodemailer'
 
-
-
 router.post("/api/contact", (req,res) => {
 
     const output = `
