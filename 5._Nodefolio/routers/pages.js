@@ -1,7 +1,7 @@
 import express from "express"
 const router = express.Router()
 
-import createPage from "../render.js"
+import createPage from "../util/render.js"
 
 const frontpagePage = createPage("frontpage/frontpage.html", { title: "Nodefolio | Welcome"})
 const projectsPage = createPage("projects/projects.html")
