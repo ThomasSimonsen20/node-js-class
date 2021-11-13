@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ThomasSimonsen20/node-js-class#readme",
   "dependencies": {
+    "toastr": "^2.1.4",
     "express": "^4.17.1",
     "nodemailer": "^6.7.0",
     "nodemon": "^2.0.14",

@@ -11,7 +11,6 @@ import nodemailer from 'nodemailer'
 
 router.post("/api/contact", (req,res) => {
 
-    console.log(req.body.name)
     const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>

@@ -34,10 +34,14 @@
 
 .projectName {
     margin-top: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 p {
     margin-top: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .btn {

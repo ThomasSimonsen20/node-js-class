@@ -18,7 +18,7 @@ fetch("/api/projects")
                 <p class="ProjectGithubLink">Links: ${escapeHTML(project.githubLink)}</p>
             </div>
             <div class="btn-container">
-                <button class="btn">Update</button>
+                <button class="btn" onclick="update(${project.id})">Update</button>
                 <button class="btn btn-delete" onclick="deleting(${project.id})">Delete</button>
             </div>
         `
@@ -45,6 +45,26 @@ function deleting(value){
         })
         
     }
+
+function update(value) {
+    const dataObject = {id: value}
+    window.location.href = "http://localhost:8080/updateProject"
+
+    fetch('/api/project/', { 
+        method: 'GET',   
+        headers: {'Content-Type': 'application/json; charset=UTF-8'}, 
+        body: JSON.stringify(dataObject)})
+        .then(function (response) {
+            if (response.ok) {
+                document.getElementById("updateName").value = "test"
+            }
+            throw new Error('Request failed.')
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+
+}
 
   
 
