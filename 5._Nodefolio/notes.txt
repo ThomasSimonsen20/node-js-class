@@ -42,3 +42,9 @@ const contact = fs.readFileSync("./public/contact/contact.html", "utf-8")
 skal sende vores data som string, så vi bruger json.stringify
 
 toastr biblotik
+
+/*
+const projectsRouter = require("./routers/projects.js")
+const pageRouter = require("./routers/pages.js")
+const contactRouter = require("./routers/contact.js")
+*/
