@@ -8,11 +8,16 @@ fetch("/api/projects")
 
     projects.map(project => {
         const projectDiv = document.createElement("div")
+        projectDiv.classList.add("project-container")
         projectDiv.innerHTML = `
-            <h3>${escapeHTML(project.name)}</h3>
-            <p>${escapeHTML(project.category)}</p>
-            <p>Technologies: ${escapeHTML(project.technologies)}</p>
-            <p>Links: ${escapeHTML(project.githubLink)}</p>
+        <div class="project-card">
+            <div class="project-card-headline">
+                <h3 class="projectName">${escapeHTML(project.name)}</h3>
+            </div>
+            <p class="projectCategory">Category: ${escapeHTML(project.category)}</p>
+            <p class="projectTechnologies">Technologies: ${escapeHTML(project.technologies)}</p>
+            <p class="ProjectGithubLink">Links: ${escapeHTML(project.githubLink)}</p>
+        </div>
         `
 
         projectWrapper.appendChild(projectDiv)

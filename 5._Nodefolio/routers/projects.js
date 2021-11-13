@@ -26,6 +26,21 @@ router.post("/api/projects", async (req, res) => {
     res.send()
 })
 
+router.put("/api/projects", async (req, res) => {
+    const dbConnection = await connectSqlite()
+
+    const id = req.body.id
+    const name = req.body.name
+    const category = req.body.category
+    const language = req.body.language
+    const technologies = req.body.technologies
+    const githubLink = req.body.githubLink
+
+    dbConnection.run('UPDATE projects SET name = ?, category = ?, language = ?, technologies = ?, githubLink = ? WHERE id = ?', name, category, language, technologies, githubLink, id )
+
+    res.send()
+})
+
 
 router.delete("/api/projects", async (req, res) => {
     const dbConnection = await connectSqlite()
@@ -39,10 +54,9 @@ router.delete("/api/projects", async (req, res) => {
 router.get("/api/project", async (req, res) => {
     const dbConnection = await connectSqlite()
     const id = req.body.id
-    //console.log(id)
-    dbConnection.get('SELECT * FROM projects WHERE id=?', id)
+    const project = await dbConnection.get('SELECT * FROM projects WHERE id = ?', id)
 
-    res.send()
+    res.send(project)
 })
 
 
