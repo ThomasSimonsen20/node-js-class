@@ -1,6 +1,6 @@
 //const router = require("express").Router();
 
-import express from "express"
+import express, { query } from "express"
 const router = express.Router()
 
 import { connectSqlite } from "../database/connectSqlite.js";
@@ -51,9 +51,9 @@ router.delete("/api/projects", async (req, res) => {
     res.send()
 })
 
-router.get("/api/project", async (req, res) => {
+router.get("/api/project/:id", async (req, res) => {
     const dbConnection = await connectSqlite()
-    const id = req.body.id
+    const id = req.params.id
     const project = await dbConnection.get('SELECT * FROM projects WHERE id = ?', id)
 
     res.send(project)

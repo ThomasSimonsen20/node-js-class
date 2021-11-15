@@ -47,24 +47,36 @@ function deleting(value){
     }
 
 function update(value) {
-    const dataObject = {id: value}
-    window.location.href = "http://localhost:8080/updateProject"
+    //location.href = "/updateProject"
 
+    
+    const dataObject = {id: value}
+    
+    fetch("/api/project/" + value)
+    .then(response => response.json())
+    .then(( project ) => { 
+        console.log(project)
+    })
+
+    /*
     fetch('/api/project/', { 
         method: 'GET',   
         headers: {'Content-Type': 'application/json; charset=UTF-8'}, 
         body: JSON.stringify(dataObject)})
         .then(function (response) {
             if (response.ok) {
-                document.getElementById("updateName").value = "test"
+                //document.getElementById("updateName").value = "test"
+                //console.log(response)
             }
             throw new Error('Request failed.')
         })
         .catch(function (error) {
-            console.log(error)
+            console.log(response)
         })
-
+        */
 }
+
+
 
 function updateProject() {
     fetch("/api/projects", {
