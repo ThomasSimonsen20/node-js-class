@@ -1,9 +1,9 @@
-import { connectSqlite } from "./connectDB.js";
+import { createConnection } from "./connectDB.js";
 
 (async () => {
-    const dbConnection = await connectSqlite()
+    const connection = await createConnection()
 
-    await dbConnection.exec("DROP TABLE IF EXISTS games")
+    await connection.exec("DROP TABLE IF EXISTS games")
 
     const gamesTableSchema = 
         `CREATE TABLE games (
@@ -13,6 +13,5 @@ import { connectSqlite } from "./connectDB.js";
             price DOUBLE
         )`
     
-    const createdTable = await dbConnection.exec(gamesTableSchema)
-        console.log(createdTable)
+    await connection.exec(gamesTableSchema)
 })()

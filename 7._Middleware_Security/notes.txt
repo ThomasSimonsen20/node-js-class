@@ -1,0 +1,18 @@
+app.get("*") = alt
+
+2xx - success
+4xx - Client errors
+5xx - Internal server errors
+401 - unauthorized
+403 - forbidden
+
+app.use("/findme", ipLogger) ip locked?
+
+next parameter.
+
+rate limit begrænse hvor mange requests der kan være på en api
+
+salt er gemt i db
+pepper er gemt på serveren
+
+hash og compare i bcrypt
