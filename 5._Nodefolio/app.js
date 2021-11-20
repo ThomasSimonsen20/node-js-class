@@ -3,7 +3,6 @@ const app = express()
 
 
 import helmet from "helmet"
-//app.use(helmet())
 app.use(
     helmet({
       contentSecurityPolicy: false,

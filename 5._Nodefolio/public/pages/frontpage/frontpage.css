@@ -1,6 +1,10 @@
 .header {
 }
 
+body {
+    background-color: #15172b;
+}
+
 .header-container {
     height: 87.8vh;
     background-image: linear-gradient(to right bottom,

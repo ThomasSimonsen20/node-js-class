@@ -2,12 +2,12 @@ import express from "express"
 const router = express.Router()
 
 import nodemailer from 'nodemailer'
-import { connectSqlite } from "../database/connectSqlite.js";
+import { connection } from "../database/connectSqlite.js";
 
 router.post("/api/contact", async (req,res) => {
-    const db = await connectSqlite()
+    //const db = await connectSqlite()
 
-    const emailDetails = await db.get(`SELECT * FROM email WHERE id = 1`)
+    const emailDetails = await connection.get(`SELECT * FROM email WHERE id = 1`)
  
     const output = `
     <p>You have a new contact request</p>

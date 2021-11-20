@@ -1,4 +1,4 @@
-import { connectSqlite } from "./connectSqlite.js"
+import { createConnection } from "./connectSqlite.js"
 
 (async () => {
     const dbConnection = await connectSqlite()

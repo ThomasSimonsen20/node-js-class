@@ -1,3 +1,7 @@
+body {
+    background-color: #15172b;
+}
+
 .form-container {
     width: 100%;
     margin: auto;
@@ -9,9 +13,10 @@
 
 .form {
     background-color: #15172b;
+    border: white solid;    
     border-radius: 20px;
     box-sizing: border-box;
-    height: 40rem;
+    height: 41rem;
     padding: 20px;
     width: 40rem;
 }
