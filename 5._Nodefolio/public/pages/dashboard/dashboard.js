@@ -14,13 +14,14 @@ fetch("/api/projects")
                     <h3 class="projectName">${escapeHTML(project.name)}</h3>
                 </div>
                 <p class="projectCategory">Category: ${escapeHTML(project.category)}</p>
+                <p class="projectLanguage">Language: ${escapeHTML(project.language)}</p>
                 <p class="projectTechnologies">Technologies: ${escapeHTML(project.technologies)}</p>
                 <p class="ProjectGithubLink">Links: ${escapeHTML(project.githubLink)}</p>
             </div>
             <div class="btn-container">
                 <button class="btn" onclick="update(${project.id})">Update</button>
                 <button class="btn btn-delete" onclick="deleting(${project.id})">Delete</button>
-            </div>
+                </div>
         `
         projectWrapper.appendChild(projectDiv)
 
@@ -36,7 +37,8 @@ function deleting(value){
         body: JSON.stringify(dataObject)})
         .then(function (response) {
             if (response.ok) {
-                window.location.href = "http://localhost:8080/dashboard"
+                location.href= "/dashboard"
+                console.log("success")
             }
             throw new Error('Request failed.')
         })
@@ -47,73 +49,7 @@ function deleting(value){
     }
 
 function update(value) {
-    //location.href = "/updateProject"
-
-    
-    const dataObject = {id: value}
-    
-    fetch("/api/project/" + value)
-    .then(response => response.json())
-    .then(( project ) => { 
-        console.log(project)
-    })
-
-    /*
-    fetch('/api/project/', { 
-        method: 'GET',   
-        headers: {'Content-Type': 'application/json; charset=UTF-8'}, 
-        body: JSON.stringify(dataObject)})
-        .then(function (response) {
-            if (response.ok) {
-                //document.getElementById("updateName").value = "test"
-                //console.log(response)
-            }
-            throw new Error('Request failed.')
-        })
-        .catch(function (error) {
-            console.log(response)
-        })
-        */
+    localStorage.setItem('id', value)
+    location.href = "/updateProject"
 }
 
-
-
-function updateProject() {
-    fetch("/api/projects", {
-        method: "PUT",
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({
-            id: document.getElementById("id").value,
-            name: document.getElementById("name").value,
-            category: document.getElementById("category").value,
-            technologies: document.getElementById("technologies").value,
-            githubLink: document.getElementById("githubLink").value,
-        })}).then(response => {
-        if (response.status === 200) {
-            window.location.href = "http://localhost:8080/dashboard"
-        } else {
-            console.log("Error sending the contact message", response.status);
-        }
-    });
-}
-  
-
-function createProject() {
-    fetch("/api/projects", {
-        method: "POST",
-        headers: { "Content-type": "application/json; charset=UTF-8" },
-        body: JSON.stringify({
-            name: document.getElementById("name").value,
-            category: document.getElementById("category").value,
-            technologies: document.getElementById("technologies").value,
-            githubLink: document.getElementById("githubLink").value,
-        })}).then(response => {
-        if (response.status === 200) {
-            window.location.href = "http://localhost:8080/dashboard"
-        } else {
-            console.log("Error sending the contact message", response.status);
-        }
-    });
-}
-
-document.getElementById("create-button").addEventListener("click", createProject);

@@ -15,6 +15,7 @@ fetch("/api/projects")
                 <h3 class="projectName">${escapeHTML(project.name)}</h3>
             </div>
             <p class="projectCategory">Category: ${escapeHTML(project.category)}</p>
+            <p class="projectLanguage">Language: ${escapeHTML(project.language)}</p>
             <p class="projectTechnologies">Technologies: ${escapeHTML(project.technologies)}</p>
             <p class="ProjectGithubLink">Links: ${escapeHTML(project.githubLink)}</p>
         </div>

@@ -1,5 +1,3 @@
-//const router = require("express").Router();
-
 import express, { query } from "express"
 const router = express.Router()
 
@@ -45,8 +43,7 @@ router.put("/api/projects", async (req, res) => {
 router.delete("/api/projects", async (req, res) => {
     const dbConnection = await connectSqlite()
     const id = req.body.id
-    //console.log(id)
-    dbConnection.run('DELETE FROM projects WHERE id=?', id)
+    dbConnection.run('DELETE FROM projects WHERE id = ?', id)
 
     res.send()
 })
@@ -62,15 +59,3 @@ router.get("/api/project/:id", async (req, res) => {
 
 export default router
 
-
-/*
-const projects = [ 
-    { name: "Node.js Recap", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
-    { name: "Nodefolio", category: "Node.js", language: "Node.js", technologies: ["Node.js", "Html", "CSS"]},
-    { name: "3rd semester project", category: "Java", language: "Java", technologies: ["Java", "Thymeleaf", "CSS", "MySQL"]}
-]
-
-
-router.get("/api/projects", (req,res) => {
-    res.send({projects})
-}) */

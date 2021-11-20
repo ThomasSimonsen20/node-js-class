@@ -1,14 +1,14 @@
-/*
-const router = require("express").Router()
-const nodemailer = require("nodemailer"); */
-
 import express from "express"
 const router = express.Router()
 
 import nodemailer from 'nodemailer'
+import { connectSqlite } from "../database/connectSqlite.js";
 
-router.post("/api/contact", (req,res) => {
+router.post("/api/contact", async (req,res) => {
+    const db = await connectSqlite()
 
+    const emailDetails = await db.get(`SELECT * FROM email WHERE id = 1`)
+ 
     const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
@@ -25,8 +25,8 @@ router.post("/api/contact", (req,res) => {
         port: 587,
         secure: false, 
         auth: {
-          user: "nodemailertest202@gmail.com", // generated ethereal user
-          pass: "nodemailer20", // generated ethereal password
+          user: emailDetails.accountName, 
+          pass: emailDetails.password, 
         },
     });
     
@@ -34,7 +34,7 @@ router.post("/api/contact", (req,res) => {
         from: '"Nodemailer contact" <nodemailertest202@gmail.com>', 
         to: "bestpalaeu20@gmail.com", 
         subject: "Node contact request", 
-        text: "Hello world?", 
+        text: "pewpew", 
         html: output, 
     });
     
@@ -43,8 +43,3 @@ router.post("/api/contact", (req,res) => {
 
 
 export default router
-/*
-module.exports = {
-    router
-}
-*/

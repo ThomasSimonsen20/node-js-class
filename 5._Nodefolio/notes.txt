@@ -48,3 +48,6 @@ const projectsRouter = require("./routers/projects.js")
 const pageRouter = require("./routers/pages.js")
 const contactRouter = require("./routers/contact.js")
 */
+
+<button class="btn btn-delete" onclick="deleting(${project.id})">Delete</button>
+<button class="btn btn-delete" id="btn-delete" value="${project.id}">Delete</button>
