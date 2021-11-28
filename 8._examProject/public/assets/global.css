@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+}
+
+.nav-container {
+    background: #303245;
+    margin-bottom: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    align-items: center;
+}
+
+.header #topnav_path {
+    position: absolute;
+
+}
+
+.header #topnav_path a:hover {
+    border-bottom: rgba(161, 161, 161, 0.54) 2px solid;
+    transition: 0.3s;
+}
+
+.header_project_title {
+    font-size: 30px;
+}
+
+.header_button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 5px 0 5px;
+}
+

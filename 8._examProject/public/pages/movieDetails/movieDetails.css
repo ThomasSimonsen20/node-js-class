@@ -1,0 +1,66 @@
+body {
+    background-color: #15172b;
+}
+
+
+.movie-container {
+    width: 60rem;
+    margin: auto;
+    background-color: #303245;
+    border: #303245 solid;
+}
+
+.movieCard {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-row-gap: 0px;
+}
+
+.info-container {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movieTitle {
+    color: white;
+}
+
+.img-container {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    justify-content: center;
+}
+
+.moviePoster {
+    border: #303245 solid;
+}
+
+.listGroup {
+    background-color: #303245;
+    width: 30rem;
+}
+
+.listGroupItem {
+    color: white;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 3rem;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+}
