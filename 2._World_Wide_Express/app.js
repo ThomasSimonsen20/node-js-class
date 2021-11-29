@@ -13,6 +13,10 @@ app.get("/cleo", (req,res) => {
     res.sendFile(__dirname + "/public/cleo/cleo.html")
 })
 
+app.get("/mark", (req,res) => {
+    res.sendFile(__dirname + "/public/mark/index.html")
+})
+
 // create a new file called teenageroom.html
 // serve /teenegeroom
 // use dynamic client-side redirection to redirect after 3 seconds
