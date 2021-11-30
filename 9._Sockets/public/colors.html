@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    
+    <input id="input-colors" type="color">
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+        const socket = io()
+
+        document.getElementById("input-colors").addEventListener("change", submitColor)
+
+        function submitColor(event) {
+            socket.emit("clientChooseColor", event.target.value)
+        }
+
+        socket.on("the server is sending the new color", (color) => {
+            document.body.style.backgroundColor = color
+        })
+
+        
+
+        
+    </script>
+</body>
+</html>

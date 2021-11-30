@@ -1,0 +1,16 @@
+sockets = web sockets
+
+client fetch til serveren, serveren giver response.
+
+websockets er bidirectional communication mellem client og server.
+
+socket.io npm
+
+socket.io har brug for en wrappet http server så derefter wrapper vi app?
+
+io.on og io.emit
+
+namespaces:
+rooms og namespaces er 2 komcepter som minder meget om hinanden.
+
+npm i escape-html
