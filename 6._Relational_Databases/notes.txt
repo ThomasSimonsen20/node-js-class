@@ -12,3 +12,27 @@ sqlite3 "dbnavn"
 .table
 select * from games etc..
 .quit
+
+jdbc er java connection til mysql, det en driver.
+
+mysql -uroot -package
+
+create database schools;
+use schools;
+create table schools (name varchar(255));
+
+describe schools
+npm i mysql2
+
+let connection;
+(async () => {
+
+})()
+
+hvad er kaldback
+
+.env er noget der bliver kørt når projektet kører, som injekter de variabler ind i projketet.
+
+process.env.testvariable
+
+handler meget om sikkerhed når man arbejder med mysql og sqlite3, f.eks. have Preparedstatements.
