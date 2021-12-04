@@ -1,0 +1,2 @@
+Skal laves check på om brugernavn allerede er i brug.
+
