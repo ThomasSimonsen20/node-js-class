@@ -12,7 +12,7 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
         <div class="movieCard">
             <div class="info-container">
                 <div class="movieTitle-container">
-                    <h3 class="movieTitle">${(movie.Title)}</h3>
+                    <h3 class="movieTitle" id="movietitle">${(movie.Title)}</h3>
                 </div>
                 <ul class="listGroup">
                     <li class="listGroupItem"><strong>Genre:</strong> ${movie.Genre}</li>
@@ -23,10 +23,14 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
                     <li class="listGroupItem"><strong>Writer:</strong> ${movie.Writer}</li>
                     <li class="listGroupItem"><strong>Actors:</strong> ${movie.Actors}</li>
                 </ul>
-                <a class="btn" href="/">Back to search</a>
+                <div class="btn-container">
+                    <a class="btn" href="/">Back to search</a>
+                    <a class="btn" onclick="saveMovieToWatchedList()">Save to watched list</a>
+                </div>
+                
             </div>
             <div class="img-container">
-                <img class="moviePoster" src="${(movie.Poster)}">
+                <img class="moviePoster" id="movieposter" src="${(movie.Poster)}">
             </div>
         </div>
         `
@@ -35,3 +39,21 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
   
 }) 
 
+function saveMovieToWatchedList() {
+    fetch("/api/movies", {
+        method: "POST",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            movietitle: document.getElementById("movietitle").innerText,
+            movieimdb: localStorage.getItem('movieID'),
+            movieposter: document.getElementById("movieposter").src,
+            movierating: 4,
+            accountsid: 1,
+        })}).then(response => {
+        if (response.status === 200) {
+            location.href= "/"
+        } else {
+            console.log("Error sending the contact message", response.status);
+        }
+    });
+}

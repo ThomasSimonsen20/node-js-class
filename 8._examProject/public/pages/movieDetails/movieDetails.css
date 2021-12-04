@@ -48,6 +48,10 @@ body {
     margin-top: 1.5rem;
 }
 
+.btn-container {
+    display: flex;
+}
+
 .btn {
     background-color: #08d;
     border-radius: 12px;
@@ -63,4 +67,5 @@ body {
     justify-content: center;
     align-items: center;
     width: 8rem;
+    margin-left: 1rem;
 }

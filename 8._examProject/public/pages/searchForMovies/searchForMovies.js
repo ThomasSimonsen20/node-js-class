@@ -35,19 +35,9 @@ function getMoviesFromAPI() {
 function movieSelected(value) {
     console.log(value)
     localStorage.setItem('movieID', value)
-    location.href = "/movieDetails"
+    location.href = "/movie-details"
 } 
 
-/*
-function getMoviesFromAPI() {
-    fetch(domainURL + document.getElementById("title").value + apiKey)
-    .then(response => response.json())
-    .then(( data ) => {
-
-       console.log(data)
-    }) 
-}
-*/
 
 document.getElementById("movie-button").addEventListener("click", getMoviesFromAPI)
 document.getElementById("title").addEventListener("keyup", function(event) {
