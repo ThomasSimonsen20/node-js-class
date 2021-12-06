@@ -4,7 +4,7 @@ import bcrypt from "bcrypt"
 
 const router = express.Router()
 
-let accountsid = 1
+let accountsid = 10
 const saltRounds = 12
 
 
@@ -14,6 +14,11 @@ router.get("/api/accounts", async (req, res) => {
 })
 
 router.get("/api/movies", async (req, res) => {
+
+    if(req.session.accountID != null) {
+        accountsid = req.session.accountID
+    } 
+
     const [rows, columns] = await connection.execute("SELECT * FROM movies WHERE accountsid = ?", [accountsid])
     res.send(rows)
 })
@@ -24,7 +29,10 @@ router.post("/api/movies", async (req, res) => {
     const movieimdb = req.body.movieimdb
     const movieposter = req.body.movieposter
     const movierating = req.body.movierating
-    //accountsid = req.body.accountsid
+
+    if(req.session.accountID != null) {
+        accountsid = req.session.accountID
+    }    
 
     const [rows, columns] = await connection.execute("INSERT INTO movies (movietitle, movieimdb, movieposter, movierating, accountsid) VALUES (?,?,?,?,?)"
     ,[movietitle, movieimdb, movieposter, movierating, accountsid])
@@ -68,15 +76,26 @@ router.post("/login", async (req, res) => {
     if(typeof rows[0].accountsPassword !== 'undefined') {
         bcrypt.compare(password, rows[0].accountsPassword, function(err, result) {
             if (result) {
-                accountsid = rows[0].idaccounts
-                //req.session.loggedIn = true;
-                res.sendStatus(200);
+                req.session.loggedIn = true
+                req.session.accountID = rows[0].idaccounts
+                res.sendStatus(200)
             } else {
                 res.sendStatus(400)
             }
         }); 
     }
-    
+})
+
+router.put("/api/accounts", async (req, res) => {
+    const role = req.body.accountsRole
+
+    if(req.session.accountID != null) {
+        accountsid = req.session.accountID
+    }  
+
+    await connection.execute('UPDATE accounts SET accountsRole = ? WHERE idaccounts = ?', [role, accountsid])
+
+    res.send()
 })
 
 

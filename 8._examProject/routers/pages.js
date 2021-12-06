@@ -8,6 +8,7 @@ const movieDetailsPage = createPage("movieDetails/movieDetails.html")
 const loginPage = createPage("login/login.html")
 const createAccountPage = createPage("createAccount/createAccount.html")
 const watchedMoviesPage = createPage("watchedMovies/watchedMovies.html")
+const successPage = createPage("payment/successPage/success.html")
 
 router.get("/", (req, res) => {
     res.send(frontpagePage)
@@ -28,6 +29,11 @@ router.get("/create-account", (req, res) => {
 router.get("/watched-movies", (req, res) => {
     res.send(watchedMoviesPage)
 })
+
+router.get("/successful-payment", (req, res) => {
+    res.send(successPage)
+})
+
 
 
 export default router

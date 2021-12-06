@@ -32,7 +32,7 @@ router.post("/create-checkout-session", async (req,res) => {
                     quantity: item.quantity
                 }
             }),
-            success_url: `${process.env.SERVER_URL}/watched-movies`,
+            success_url: `${process.env.SERVER_URL}/successful-payment`,
             cancel_url: `${process.env.SERVER_URL}/create-account`,
         })
         res.json({ url: session.url})
