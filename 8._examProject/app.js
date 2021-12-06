@@ -18,9 +18,11 @@ app.use(express.urlencoded({ extended: true}))
 
 import pagesRouter from "./routers/pages.js"
 import dbRouter from "./routers/db.js"
+import paymentRouter from "./routers/payment.js"
 
 app.use(pagesRouter)
 app.use(dbRouter)
+app.use(paymentRouter)
 
 const PORT = process.env.PORT || 8080
 
