@@ -46,10 +46,23 @@ router.post("/api/accounts", async (req, res) => {
     const accountsRole = req.body.accountsRole
 
     bcrypt.hash(accountsPassword, saltRounds, async function (err, hash) {
-
+/*
         await connection.execute("INSERT INTO accounts (accountsUsername, accountsPassword, accountsRole) VALUES (?,?,?)",
             [accountsUsername, hash, accountsRole])
-            .then(() => res.sendStatus(200))
+            .then(() => res.sendStatus(200)) 
+            */
+
+            await connection.execute("INSERT INTO accounts (accountsUsername, accountsPassword, accountsRole) VALUES (?,?,?)",
+            [accountsUsername, hash, accountsRole], function(err, result) {
+                if (result) {
+                    console.log(result.insertId)
+                    accountsid = result.insertId
+                    res.sendStatus(200)
+                } else {
+                    res.sendStatus(400)
+                  }
+            })
+            .then(() => res.sendStatus(200)) 
     });
 
     //res.send(rows)
