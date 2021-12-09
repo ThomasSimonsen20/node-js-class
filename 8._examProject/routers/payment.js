@@ -47,37 +47,4 @@ router.post("/create-checkout-session", async (req,res) => {
 })  
 
 
-/*
-router.post("/create-checkout-session", async (req,res) => {
-  getProduct()
-    try {
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ["card"],
-            mode: "payment",
-            line_items: req.body.items.map(item => {
-                const storeItem = storeItems.get(item.id)
-                return {
-                    price_data: {
-                        currency: "dkk",
-                        product_data: {
-                            name: storeItem.name
-                        },
-                        unit_amount: storeItem.priceInCents
-                    },
-                    quantity: item.quantity
-                }
-            }),
-            success_url: `${process.env.SERVER_URL}/successful-payment`,
-            cancel_url: `${process.env.SERVER_URL}/create-account`,
-        })
-        res.json({ url: session.url})
-    } catch (e) {
-        res.status(500).json({ error: e.message })
-    }
-})  */
-
-
-
-
-
 export default router

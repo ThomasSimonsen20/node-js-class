@@ -40,7 +40,7 @@ function movieSelected(value) {
 
 
 document.getElementById("movie-button").addEventListener("click", getMoviesFromAPI)
-document.getElementById("title").addEventListener("keyup", function(event) {
+document.getElementById("title").addEventListener("keyup", (event) => {
     if (event.keyCode === 13) {
       event.preventDefault();
       document.getElementById("movie-button").click();

@@ -18,12 +18,42 @@ function submitCreatedAccount() {
         })  
     }).then(response => {
         if (response.status === 200) {
-            location.href= "/"
+            if(role == 1) {
+                checkout()
+            } else {
+                location.href= "/"
+            }
+            
         } else {
-            console.log("Error sending the contact message", response.status);
+            console.log("Error sending the contact message", response.status)
         }
     });
 
+}
+
+function checkout() {
+
+    fetch("/create-checkout-session", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            items: [
+            { id: 1, quantity: 1 }
+        ],
+        }),
+        })
+        .then(res => {
+            if (res.ok) return res.json()
+        })
+        .then(({ url }) => {
+            window.location = url
+        })
+        .catch(e => {
+            console.error(e.error)
+        }) 
+  
 }
 
 document.getElementById("createAccountButton").addEventListener("click", submitCreatedAccount);

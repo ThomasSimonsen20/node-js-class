@@ -44,14 +44,14 @@ function deleting(value){
         method: 'DELETE',   
         headers: {'Content-Type': 'application/json; charset=UTF-8'}, 
         body: JSON.stringify(dataObject)})
-        .then(function (response) {
+        .then((response) => {
             if (response.ok) {
                 location.href= "/watched-movies"
                 console.log("success")
             }
             throw new Error('Request failed.')
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error)
         }) 
         

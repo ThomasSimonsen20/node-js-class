@@ -1,4 +1,4 @@
-fetch("/api/accounts", {
+fetch("/api/accounts/role", {
     method: "PUT",
     headers: { "Content-type": "application/json; charset=UTF-8" },
     body: JSON.stringify({
