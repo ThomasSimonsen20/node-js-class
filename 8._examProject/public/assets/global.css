@@ -36,3 +36,10 @@ body {
     margin: 0 5px 0 5px;
 }
 
+#freeshit {
+    display: none;
+}
+
+#verified {
+    display: none;
+}

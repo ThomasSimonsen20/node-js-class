@@ -10,7 +10,20 @@ export async function getAccounts() {
             error => reject(error)
         }
     })
+}
+
+
+export async function getAccount(accountID) {
+    return await new Promise(async (resolve, reject) => {
+        try {
+            const [rows] = await connection.execute("SELECT * FROM accounts WHERE idaccounts = ? ", [accountID])
+            rows ? resolve(rows) : resolve(null)
+        } catch {
+            error => reject(error)
+        }
+    })
 } 
+
 
 export async function createAccount(account) {
     return await new Promise(async (resolve, reject) => {

@@ -21,6 +21,12 @@ router.get("/api/accounts", async (req, res) => {
     accounts ? res.send(accounts) : res.status(500)
 })
 
+router.get("/api/account", async (req, res) => {
+    const account = await accountRepo.getAccount(req.session.accountID)
+    
+    account ? res.send(account) : res.status(500)
+})
+
 
 router.post("/api/accounts", async (req, res) => {
 

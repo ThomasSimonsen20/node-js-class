@@ -26,8 +26,6 @@ router.get("/search-movies", (req, res) => {
     } else {
         res.send(searchForMoviesPage)
     }
-
-    
 })
 
 router.get("/movie-details", (req, res) => {
@@ -45,10 +43,6 @@ router.get("/create-account", (req, res) => {
 
 router.get("/watched-movies", (req, res) => {
     res.send(watchedMoviesPage)
-})
-
-router.get("/successful-payment", (req, res) => {
-    res.send(successPage)
 })
 
 router.get("/account-settings", (req, res) => {
