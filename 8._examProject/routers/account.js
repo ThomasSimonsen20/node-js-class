@@ -34,6 +34,9 @@ router.post("/api/accounts", async (req, res) => {
 
         if(result) {
             req.session.accountID = result.insertId
+            req.session.accountRole =  req.body.accountsRole
+            req.session.isVerified = 0
+            req.session.loggedIn = true
 
             jwtSign(result.insertId, "bestpalaeu20@gmail.com")
 
@@ -47,13 +50,14 @@ router.post("/api/accounts", async (req, res) => {
 router.get('/confirmation/:token', async (req, res) => {
     try {
       const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
-      console.log(result)
       await accountRepo.updateIsVerified(1, result.user)
+      req.session.accountID = result.user
+      req.session.loggedIn = true
     } catch (e) {
       res.sendStatus(500);
     }
   
-    return res.redirect('http://localhost:8080/');
+    return res.redirect('http://localhost:8080/search-movies');
   });
 
 
@@ -70,6 +74,9 @@ router.post("/api/accounts/login", async (req, res) => {
             if (newResult) {
                 req.session.loggedIn = true
                 req.session.accountID = result[0].idaccounts
+                req.session.isVerified = result[0].isVerified
+                req.session.accountRole =  result[0].accountsRole
+
                 res.sendStatus(200)
             } else {
                 res.sendStatus(400)

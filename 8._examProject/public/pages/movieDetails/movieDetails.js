@@ -57,7 +57,7 @@ function saveMovieToWatchedList() {
             movierating: parseInt(document.querySelector('.stars').getAttribute('data-rating')),
         })}).then(response => {
         if (response.status === 200) {
-            location.href= "/"
+            location.href= "/watched-movies"
         } else {
             console.log("Error sending the contact message", response.status);
         }

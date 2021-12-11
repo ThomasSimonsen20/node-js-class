@@ -23,7 +23,7 @@ function submitCreatedAccount() {
             if(role == 1) {
                 checkout()
             } else {
-                location.href= "/"
+                location.href= "/watched-movies"
             }
             
         } else {

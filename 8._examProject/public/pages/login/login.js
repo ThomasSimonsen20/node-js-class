@@ -8,7 +8,7 @@ function login() {
         })
     }).then(res => {
         if (res.status == 200) {
-            location.href= "/"
+            location.href= "/search-movies"
         }
         else {
             console.log("it failed")
@@ -16,4 +16,9 @@ function login() {
     }) 
 }
 
+function createNewAccount() {
+    location.href = "/create-account"
+}
+
 document.getElementById("login-button").addEventListener("click", login)
+document.getElementById("createAccount-button").addEventListener("click", createNewAccount)
