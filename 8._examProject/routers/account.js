@@ -1,7 +1,14 @@
+import dotenv from "dotenv"
+dotenv.config()
+
 import express from "express"
 //import connection from "../database/conectMysql.js"
 import bcrypt from "bcrypt"
 import * as accountRepo from "../database/repository/account.js"
+import { jwtSign } from "../util/nodemailerTransporter.js"
+import jwt from 'jsonwebtoken';
+
+
 
 const router = express.Router()
 
@@ -14,24 +21,43 @@ router.get("/api/accounts", async (req, res) => {
     accounts ? res.send(accounts) : res.status(500)
 })
 
+
 router.post("/api/accounts", async (req, res) => {
 
     const accountsPassword = req.body.accountsPassword
 
     bcrypt.hash(accountsPassword, saltRounds, async (err, hash) => {
 
-        let account = {accountsUsername: req.body.accountsUsername, accountsPassword: hash, accountsRole: req.body.accountsRole}
+        let account = {accountsUsername: req.body.accountsUsername, accountsPassword: hash, accountsRole: req.body.accountsRole, accountsEmail: req.body.accountsEmail}
 
         const result = await accountRepo.createAccount(account)
 
         if(result) {
             req.session.accountID = result.insertId
-            res.sendStatus(200) 
+
+            jwtSign(result.insertId, "bestpalaeu20@gmail.com")
+
+            res.sendStatus(200)
         } else {
             res.sendStatus(400)
         }
     });
 })
+
+router.get('/confirmation/:token', async (req, res) => {
+    try {
+      const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
+      console.log(result)
+      await accountRepo.updateIsVerified(1, result.user)
+    } catch (e) {
+      res.sendStatus(500);
+    }
+  
+    return res.redirect('http://localhost:8080/');
+  });
+
+
+
 
 router.post("/api/accounts/login", async (req, res) => {
     const name = req.body.accountsUsername
@@ -52,7 +78,7 @@ router.post("/api/accounts/login", async (req, res) => {
     } else {
         res.sendStatus(404)
     }
-})
+}) 
 
 router.put("/api/accounts/role", async (req, res) => {
     const role = req.body.accountsRole

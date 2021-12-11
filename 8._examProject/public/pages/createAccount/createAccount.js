@@ -14,6 +14,8 @@ function submitCreatedAccount() {
         body: JSON.stringify({
             accountsUsername: document.getElementById("username").value,
             accountsPassword: document.getElementById("password").value,
+            accountsEmail: document.getElementById("email").value,
+
             accountsRole: role,
         })  
     }).then(response => {

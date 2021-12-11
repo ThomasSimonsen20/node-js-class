@@ -13,7 +13,7 @@ body {
     background-color: #303245;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 25.5rem;
+    height: 31.5rem;
     padding: 20px;
     width: 40rem;
 }
@@ -66,6 +66,20 @@ body {
     padding: 4px 20px 0;
     width: 100%;
 }
+
+.email {
+    background-color: white;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: black;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
 
 .btn {
     background-color: #08d;

@@ -15,8 +15,8 @@ export async function getAccounts() {
 export async function createAccount(account) {
     return await new Promise(async (resolve, reject) => {
         try {
-            const [rows] = await connection.execute("INSERT INTO accounts (accountsUsername, accountsPassword, accountsRole) VALUES (?,?,?)",
-            [account.accountsUsername, account.accountsPassword, account.accountsRole])
+            const [rows] = await connection.execute("INSERT INTO accounts (accountsUsername, accountsPassword, accountsRole, accountsEmail) VALUES (?,?,?,?)",
+            [account.accountsUsername, account.accountsPassword, account.accountsRole, account.accountsEmail])
 
             resolve(rows)
         } catch {
@@ -43,6 +43,19 @@ export async function updateAccountRole(role, accountsId) {
         try {
             await connection.execute('UPDATE accounts SET accountsRole = ? WHERE idaccounts = ?',
             [role, accountsId])
+            
+            resolve(true)
+        } catch {
+            error => reject(error)
+        }
+    })
+} 
+
+export async function updateIsVerified(isVerified, accountsId) {
+    return await new Promise(async (resolve, reject) => {
+        try {
+            await connection.execute('UPDATE accounts SET isVerified = ? WHERE idaccounts = ?',
+            [isVerified, accountsId])
             
             resolve(true)
         } catch {
