@@ -5,14 +5,13 @@ import express from "express"
 //import connection from "../database/conectMysql.js"
 import bcrypt from "bcrypt"
 import * as accountRepo from "../database/repository/account.js"
-import { jwtSign } from "../util/nodemailerTransporter.js"
+import { jwtSign } from "../util/jwtSign.js"
 import jwt from 'jsonwebtoken';
-
-
 
 const router = express.Router()
 
 const saltRounds = 12
+let currentUsername
 
 
 router.get("/api/accounts", async (req, res) => {
@@ -22,9 +21,12 @@ router.get("/api/accounts", async (req, res) => {
 })
 
 router.get("/api/account", async (req, res) => {
-    const account = await accountRepo.getAccount(req.session.accountID)
-    
+    const [account] = await accountRepo.getAccount(req.session.accountID)
     account ? res.send(account) : res.status(500)
+})
+
+router.get("/api/account/username", async (req, res) => {
+    res.send({accountsUsername: currentUsername})
 })
 
 
@@ -43,8 +45,9 @@ router.post("/api/accounts", async (req, res) => {
             req.session.accountRole =  req.body.accountsRole
             req.session.isVerified = 0
             req.session.loggedIn = true
+            currentUsername = req.body.accountsUsername
 
-            jwtSign(result.insertId, "bestpalaeu20@gmail.com")
+            jwtSign(result.insertId, req.body.accountsEmail)
 
             res.sendStatus(200)
         } else {
@@ -55,25 +58,26 @@ router.post("/api/accounts", async (req, res) => {
 
 router.get('/confirmation/:token', async (req, res) => {
     try {
-      const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET);
+      const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET)
       await accountRepo.updateIsVerified(1, result.user)
       req.session.accountID = result.user
       req.session.loggedIn = true
     } catch (e) {
-      res.sendStatus(500);
+      res.sendStatus(500)
     }
   
-    return res.redirect('http://localhost:8080/search-movies');
-  });
+    return res.redirect('http://localhost:8080/search-movies')
+  })
 
 
 
 
 router.post("/api/accounts/login", async (req, res) => {
-    const name = req.body.accountsUsername
+    currentUsername = req.body.accountsUsername
     const password = req.body.accountsPassword
     
-    const result = await accountRepo.login(name)
+    const result = await accountRepo.login(currentUsername)
+    
     
     if(typeof result[0].accountsPassword !== 'undefined') {
         bcrypt.compare(password, result[0].accountsPassword, (err, newResult) => {
@@ -83,7 +87,11 @@ router.post("/api/accounts/login", async (req, res) => {
                 req.session.isVerified = result[0].isVerified
                 req.session.accountRole =  result[0].accountsRole
 
-                res.sendStatus(200)
+                if(result[0].accountsRole === 9) {
+                    res.send({isAdmin: true})
+                } else {
+                    res.send({isAdmin: false})
+                }
             } else {
                 res.sendStatus(400)
             }
@@ -98,8 +106,20 @@ router.put("/api/accounts/role", async (req, res) => {
     const accountsid = req.session.accountID
 
     const result = await accountRepo.updateAccountRole(role, accountsid)
+    console.log(result)
 
-    result ? res.sendStatus(200) : res.sendStatus(500)
+    if (result) {
+        req.session.accountRole = role
+        res.sendStatus(200)
+    } else {
+        res.sendStatus(500)
+    }
+})
+
+
+router.get("/logout", (req, res) => {
+    req.session.destroy()
+    res.redirect("/")
 })
 
 

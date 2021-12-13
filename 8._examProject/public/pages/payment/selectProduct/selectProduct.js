@@ -1,6 +1,22 @@
+let isVerified
+
+fetch("/api/account")
+.then(response => response.json())
+.then((account) => {
+    
+    //console.log(account.isVerified)
+    isVerified = account.isVerified
+
+    if(isVerified === 0) {
+        document.getElementById("verify-hidden-text").style.display = "block";
+
+    } else {
+        document.getElementById("upgradeButton").addEventListener("click", checkout);
+    }
+})
+
 function checkout() {
 
-    /*
     fetch("/create-checkout-session", {
         method: "POST",
         headers: {
@@ -20,10 +36,8 @@ function checkout() {
         })
         .catch(e => {
             console.error(e.error)
-        }) */
-
-        window.location = "/select-product"
+        }) 
   
 }
 
-document.getElementById("upgradeButton").addEventListener("click", checkout);
+//document.getElementById("upgradeButton").addEventListener("click", checkout);

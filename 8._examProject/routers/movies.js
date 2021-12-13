@@ -1,11 +1,15 @@
 import express from "express"
-import * as moviesRepo from "../database/repository/movies.js"
+import * as moviesRepo from "../database/repository/moviesRepo.js"
 import connection from "../database/conectMysql.js"
 
 const router = express.Router()
 
-let accountsid = 10
+let accountsid
+let movies
 
+router.get("/api/movies/current", async (req, res) => {
+    res.send({movies: movies, accountRole: req.session.accountRole})
+}) 
 
 router.get("/api/movies", async (req, res) => {
 
@@ -15,10 +19,29 @@ router.get("/api/movies", async (req, res) => {
 
     //const result = moviesRepo.getMoviesFromID(accountsid)
     //result ? res.send(result) : res.sendStatus(500)
-
+   
     const [rows] = await connection.execute("SELECT * FROM movies WHERE accountsid = ?", [accountsid])
+
+    movies = rows
     res.send(rows)
 }) 
+
+router.patch("/api/movies", async (req, res) => {
+
+    if(req.session.accountID != null) {
+        accountsid = req.session.accountID
+    } 
+    
+    let movie = {
+        movierating: req.body.movierating,
+        accountsid: accountsid,
+        movieimdb: req.body.movieimdb
+    }
+
+    const result = moviesRepo.updateMovieRating(movie)
+
+    result ? res.sendStatus(200) : res.sendStatus(500)
+})
 
 router.post("/api/movies", async (req, res) => {
 

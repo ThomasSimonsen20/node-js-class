@@ -93,4 +93,10 @@ body {
 }
 
 
+#free-hidden-text {
+    display: none;
+    text-align: center;
+    color: white;
+    margin-top: 17rem;
 
+}

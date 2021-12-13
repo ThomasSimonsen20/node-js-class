@@ -1,0 +1,170 @@
+body {
+    background-color: #15172b;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 5rem;
+}
+  #message-container {
+    width: 100%;
+    color: white;
+  }
+
+  #message-container div {
+    background-color: #303245;
+    padding: 5px;
+    
+  }
+
+  #message-input {
+    flex-grow: 1;
+  }
+
+
+* {
+    box-sizing: border-box;
+  }
+  .chat-container {
+    width: 40rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    height: 34rem;
+    border: white solid;
+  }
+  .chat {
+    height: 23rem;
+    overflow: auto;
+    transform: rotate(180deg);
+    direction: rtl;
+    background-color: #303245;
+    margin: auto auto 0 auto;
+    width: 90%;
+    border-radius: 20px;
+  }
+  .chat .message {
+    border-bottom: solid 1px #ccc;
+    padding: 20px;
+    transform: rotate(180deg);
+    direction: ltr;
+  }
+  .chat .message .avatar {
+    float: left;
+    margin-right: 5px;
+  }
+  .chat .message .datetime {
+    float: right;
+    color: #999;
+  }
+
+  #send-container {
+    width: 50%;
+    margin: auto;
+  }
+
+  #label {
+    margin-top: 1rem;
+  }
+  .send-message-form input {
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    margin: auto;
+    border-radius: 20px;
+  }
+  .send-message-form button {
+    display: none;
+  }
+  
+  .label {
+    font-weight: 800;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+}
+
+.form {
+  background-color: #15172b;
+  border: white solid;    
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 34rem;
+  padding: 20px;
+  width: 40rem;
+}
+
+.input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#name {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+}
+
+#email {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+#message {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 15rem;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+  margin-top: 1rem;
+  resize: none;
+}
+
+
+.btn {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 3rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+}

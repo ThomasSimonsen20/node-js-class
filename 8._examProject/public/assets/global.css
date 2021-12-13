@@ -36,10 +36,10 @@ body {
     margin: 0 5px 0 5px;
 }
 
-#freeshit {
+#freeUser {
     display: none;
 }
 
-#verified {
+#notVerified {
     display: none;
 }

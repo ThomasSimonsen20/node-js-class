@@ -3,14 +3,16 @@ dotenv.config()
 
 import connection from "../database/conectMysql.js"
 
-import express, { application } from "express"
+import express from "express"
 const router = express()
 
 import Stripe from "stripe"
 const stripe = new Stripe(process.env.STRIPE_PRIVATE_KEY)
 
 import * as createPages from "../util/render.js"
-const successPage = createPages.createPage("payment/successPage/success.html")
+const successPage = createPages.createPageWithoutHeader("payment/successPage/success.html")
+const cancelPage = createPages.createPageWithoutHeader("payment/cancelPage/cancel.html")
+
 
 
 let products
@@ -40,7 +42,7 @@ router.post("/create-checkout-session", async (req,res) => {
               }
           }),
             success_url: `${process.env.SERVER_URL}/successful-payment?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${process.env.SERVER_URL}/create-account`,
+            cancel_url: `${process.env.SERVER_URL}/cancel-payment`,
         })
         res.json({ url: session.url})
     } catch (e) {
@@ -53,10 +55,17 @@ router.get("/successful-payment", async (req, res) => {
         const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
         res.send(successPage)
     } catch (error) {
-        //console.log(error)
         res.redirect("/")
     }
-    
+})
+
+router.get("/cancel-payment", async (req, res) => {
+    if(!req.session.loggedIn) {
+        res.redirect("/")
+    } else {
+        res.send(cancelPage)
+    }
+
 })
 
 

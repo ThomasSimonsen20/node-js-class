@@ -6,8 +6,10 @@ fetch("/api/accounts/role", {
     })  
 }).then(response => {
     if (response.status === 200) {
-        location.href= "/watched-movies"
+        setTimeout( () =>{ 
+            location.href= "/watched-movies"
+         }, 3000)
     } else {
-        console.log("Error sending the contact message", response.status);
+        console.log("Error sending the contact message", response.status)
     }
 });

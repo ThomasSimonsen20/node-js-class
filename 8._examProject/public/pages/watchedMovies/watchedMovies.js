@@ -1,3 +1,16 @@
+fetch("/api/account")
+.then(response => response.json())
+.then((account) => {
+    
+    //console.log(account.isVerified)
+    let role = account.accountsRole
+
+
+    if(role === 2) {
+        document.getElementById("free-hidden-text").style.display = "inherit";
+    }
+})
+
 
 fetch("/api/movies")
 .then(response => response.json())
@@ -9,8 +22,6 @@ fetch("/api/movies")
         data.sort((a, b) => {
             return b.movierating - a.movierating
         });
-
-        //console.log(data)
   
         data.map((movie) => {
             const movieDiv = document.createElement("div")
@@ -57,7 +68,6 @@ function deleting(value){
         .catch((error) => {
             console.log(error)
         }) 
-        
 }
 
 

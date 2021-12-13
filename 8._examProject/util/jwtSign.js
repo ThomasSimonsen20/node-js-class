@@ -27,9 +27,9 @@ export function jwtSign(id, email) {
           const url = `http://localhost:8080/confirmation/${emailToken}`;
             
           transporter.sendMail({
-            to: "bestpalaeu20@gmail.com",
+            to: email,
             subject: 'Confirm Email',
-            html: `Please click this email to confirm your email: <a href="${url}">Verify Email</a>`,
+            html: `Please click this link to confirm your account: <a href="${url}">Verify Email</a>`,
           });
     })
 }
