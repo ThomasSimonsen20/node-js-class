@@ -78,8 +78,8 @@ router.post("/api/accounts/login", async (req, res) => {
     
     const result = await accountRepo.login(currentUsername)
     
-    
-    if(typeof result[0].accountsPassword !== 'undefined') {
+    //if(typeof result[0].accountsPassword !== 'undefined') {
+    if(result[0]) {
         bcrypt.compare(password, result[0].accountsPassword, (err, newResult) => {
             if (newResult) {
                 req.session.loggedIn = true

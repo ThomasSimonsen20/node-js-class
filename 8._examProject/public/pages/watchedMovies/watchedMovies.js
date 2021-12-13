@@ -32,7 +32,7 @@ fetch("/api/movies")
                     <h3 class="movieTitle">${(movie.movietitle)}</h3>
                 </div>
                 <img class="moviePoster" src="${(movie.movieposter)}">
-                <p>${(movie.movierating)} / 5</p>
+                <p class="rating">${(movie.movierating)} / 5</p>
                 <div class="btnDetails-container">
                     <a class="btnDetails" id="btnDetails" onclick="movieSelected('${(movie.movieimdb)}')">Movie Details</a>
                     <a class="btn btn-delete" onclick="deleting(${movie.idmovies})">Delete</a>
