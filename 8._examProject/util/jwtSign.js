@@ -14,7 +14,7 @@ let transporter = nodemailer.createTransport({
         },
 });
 
-export function jwtSign(id, email) {
+export function jwtConfirmEmail(id, email) {
     jwt.sign(
         {
           user: id,
@@ -33,3 +33,25 @@ export function jwtSign(id, email) {
           });
     })
 }
+
+
+export function jwtForgotPassword(id, email) {
+  jwt.sign(
+      {
+        user: id,
+      },
+      process.env.EMAIL_SECRET,
+      {
+        expiresIn: '1d',
+      },
+      (err, emailToken) => {
+        const url = `http://localhost:8080/changePassword/${emailToken}`;
+          
+        transporter.sendMail({
+          to: email,
+          subject: 'change password on WatchedFlix',
+          html: `Please click this link to change password: <a href="${url}">Change password</a>`,
+        });
+  })
+}
+

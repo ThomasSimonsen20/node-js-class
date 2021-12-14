@@ -36,10 +36,16 @@ body {
     margin: 0 5px 0 5px;
 }
 
+.hidden-container {
+    margin-right: 100rem;
+}
+
 #freeUser {
     display: none;
+    color: #08d;
 }
 
 #notVerified {
     display: none;
+    color: red;
 }

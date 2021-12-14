@@ -9,16 +9,15 @@ function login() {
     })
     .then(res => res.json())
     .then(( data ) => {
-        console.log(data.isAdmin)
         if (data.isAdmin) {
             location.href= "/support"
         } else if (!data.isAdmin) {
             location.href= "/watched-movies"
         }
         else {
-            console.log("it failed")
+            console.log("No user found")
         }
-    }) 
+    })
 }
 
 

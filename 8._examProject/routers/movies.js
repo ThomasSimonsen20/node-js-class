@@ -1,6 +1,8 @@
 import express from "express"
 import * as moviesRepo from "../database/repository/moviesRepo.js"
 import connection from "../database/conectMysql.js"
+import escape from "escape-html"
+
 
 const router = express.Router()
 
@@ -33,9 +35,9 @@ router.patch("/api/movies", async (req, res) => {
     } 
     
     let movie = {
-        movierating: req.body.movierating,
+        movierating: escape(req.body.movierating),
         accountsid: accountsid,
-        movieimdb: req.body.movieimdb
+        movieimdb: escape(req.body.movieimdb)
     }
 
     const result = moviesRepo.updateMovieRating(movie)
@@ -50,10 +52,10 @@ router.post("/api/movies", async (req, res) => {
     } 
     
     let movie = {
-        movietitle: req.body.movietitle,
-        movieimdb: req.body.movieimdb,
-        movieposter: req.body.movieposter,
-        movierating: req.body.movierating,
+        movietitle: escape(req.body.movietitle),
+        movieimdb: escape(req.body.movieimdb),
+        movieposter: escape(req.body.movieposter),
+        movierating: escape(req.body.movierating),
         accountsid: accountsid
     }
 

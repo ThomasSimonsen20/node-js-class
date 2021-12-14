@@ -17,6 +17,8 @@ app.use(session({
     saveUninitialized: true,
     cookie: { secure: false }
   }))
+import escape from "escape-html"
+
 
 app.use(express.static('public'))
 app.use(express.json())
@@ -42,10 +44,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('user-connected-admin', name)
   })
   socket.on('send-message-to-admin', (message) => {
-    socket.broadcast.emit('chat-message-admin', { message: message, name: users[socket.id], id: socket.id })
+    socket.broadcast.emit('chat-message-admin', { message: escape(message), name: users[socket.id], id: socket.id })
   })
   socket.on('send-chat-message-client', (message, currentClient) => {
-    socket.to(currentClient).emit('chat-message', { message: message, name: "Support" })
+    socket.to(currentClient).emit('chat-message', { message: escape(message), name: "Support" })
   })
   socket.on('disconnect', () => {
     socket.broadcast.emit('user-disconnected-admin', users[socket.id])

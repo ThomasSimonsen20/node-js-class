@@ -4,7 +4,6 @@ fetch("/api/account")
 .then(response => response.json())
 .then((account) => {
     
-    //console.log(account.isVerified)
     isVerified = account.isVerified
 
     if(isVerified === 0) {
@@ -38,6 +37,19 @@ function checkout() {
             console.error(e.error)
         }) 
   
+}
+
+function sendLink() {
+    fetch("/api/accounts/resend-verification", {
+        method: "POST",
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+    }).then(response => {
+        if (response.status === 200) {
+            document.getElementById("send-email-confirmation").style.display = "block"
+        } else {
+            console.log("Error sending the contact message", response.status)
+        } 
+    })
 }
 
 //document.getElementById("upgradeButton").addEventListener("click", checkout);

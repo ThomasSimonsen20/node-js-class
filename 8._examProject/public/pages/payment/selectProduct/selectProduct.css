@@ -28,6 +28,26 @@ body {
 
 #verify-hidden-text {
     display: none;
+}
+
+.hidden-text-headline {
+    text-align: center;
+    color: white;
+}
+
+.hidden-text-extra {
+    text-align: center;
+    color: white;
+}
+
+.hidden-text-link {
+    color: #08d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.send-email-confirmation {
+    display: none;
     text-align: center;
     color: white;
 }
@@ -45,3 +65,4 @@ body {
     text-align: center;
     width: 30%;
 }
+

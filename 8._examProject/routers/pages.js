@@ -5,17 +5,24 @@ import * as createPages from "../util/render.js"
 
 const searchForMoviesPage = createPages.createPage("searchForMovies/searchForMovies.html")
 const movieDetailsPage = createPages.createPage("movieDetails/movieDetails.html", { title: "Movie detail - WatchedFlix"})
-const loginPage = createPages.createPageWithoutHeader("login/login.html")
-const createAccountPage = createPages.createPageWithoutHeader("createAccount/createAccount.html")
+const loginPage = createPages.createPageNotLoggedIn("login/login.html")
+const createAccountPage = createPages.createPageNotLoggedIn("createAccount/createAccount.html")
 const watchedMoviesPage = createPages.createPage("watchedMovies/watchedMovies.html")
 const accountSettingsPage = createPages.createPage("accountSettings/accountSettings.html")
 const selectProductPage = createPages.createPage("payment/selectProduct/selectProduct.html")
-const contact = createPages.createPage("contact/contact.html")
-const support = createPages.createPageWithoutHeader("support/support.html")
+const contactPage = createPages.createPage("contact/contact.html")
+const supportPage = createPages.createPageWithoutHeader("support/support.html")
+const changingPasswordPage = createPages.createPageWithoutHeader("/changeAccountPassword/changeAccountPassword.html")
+const forgotPasswordPage = createPages.createPageNotLoggedIn("/forgotPassword/forgotPassword.html")
+
 
 
 router.get("/", (req, res) => {
     res.send(loginPage)
+})
+
+router.get("/forgot-password", (req, res) => {
+    res.send(forgotPasswordPage)
 })
 
 
@@ -23,13 +30,22 @@ router.get("/contact", (req, res) => {
     if(!req.session.loggedIn) {
         res.send(loginPage)
     } else {
-        res.send(contact)
+        res.send(contactPage)
+    }
+}) 
+
+router.get("/change-password", (req, res) => {
+    if(!req.session.passwordBeingChanged) {
+        res.send(loginPage)
+    } else {
+        req.session.passwordBeingChanged = false
+        res.send(changingPasswordPage)
     }
 }) 
 
 router.get("/support", (req, res) => {
     if (req.session.accountRole === 9 && req.session.loggedIn) {
-        res.send(support)
+        res.send(supportPage)
     } else {
         res.send(loginPage)
     }

@@ -64,6 +64,20 @@ export async function updateAccountRole(role, accountsId) {
     })
 } 
 
+export async function updateAccountPassword(password, accountsId) {
+    return await new Promise(async (resolve, reject) => {
+        try {
+            await connection.execute('UPDATE accounts SET accountsPassword = ? WHERE idaccounts = ?',
+            [password, accountsId])
+            
+            resolve(true)
+        } catch {
+            error => reject(error)
+        }
+    })
+} 
+
+
 export async function updateIsVerified(isVerified, accountsId) {
     return await new Promise(async (resolve, reject) => {
         try {

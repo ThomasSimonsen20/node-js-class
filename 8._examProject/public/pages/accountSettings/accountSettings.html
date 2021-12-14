@@ -3,18 +3,26 @@
     <div class="form">
         <label class="headline">Change settings</label>
         <div class="input-container">
-            <label for="Username" class="label">Username</label>
-            <input class="userName" id="username" type="text" value="test" required>         
+            <label for="currentPassword" class="label">Current pasword</label>
+            <input class="password" id="currentPassword" type="password" required>         
          </div>
 
         <div class="input-container">
-            <label for="password" class="label">Password</label>
-            <input class="password" id="password" type="password" value="test" required>
+            <label for="newPasswordOne" class="label">New password</label>
+            <input class="password" id="newPasswordOne" type="password" required>
         </div>
-        
-        <button id="upgradeButton" class="btn">Upgrade to premium</button>
 
-        <button id="createAccountButton" class="btn">Update</button>
+        <div class="input-container">
+            <label for="newPasswordTwo" class="label">Confirm new password</label>
+            <input class="password" id="newPasswordTwo" type="password" required>
+        </div>
+
+        <button id="updatePassword" class="btn">Update</button>
+    </div>
+
+    <div id="upgrade-container" class="form">
+        <h1 class="upgrade-headline">Click below to upgrade to Premium</h1>
+        <button id="upgradeButton" class="btn">Upgrade to premium</button>
     </div>
 </div>
 
