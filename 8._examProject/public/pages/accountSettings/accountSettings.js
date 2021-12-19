@@ -26,12 +26,19 @@ function changePassword() {
             document.getElementById("currentPassword").value = ""
             document.getElementById("newPasswordOne").value = ""
             document.getElementById("newPasswordTwo").value = ""
-        } else {
-            console.log("Error changing password", response.status)
+            toastr.info("Succesfully changed password")
+        }
+        
+        if (response.status === 400) {
+            toastr.info("Passwords doesn't match")
+        }
+
+        if (response.status === 409) {
+            toastr.info("Current password is incorrect")
         }
     })
 }
 
 
-document.getElementById("updatePassword").addEventListener("click", changePassword);
-document.getElementById("upgradeButton").addEventListener("click", checkout);
+document.getElementById("updatePassword").addEventListener("click", changePassword)
+document.getElementById("upgradeButton").addEventListener("click", checkout)

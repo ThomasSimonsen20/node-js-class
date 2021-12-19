@@ -2,12 +2,10 @@ fetch("/api/account")
 .then(response => response.json())
 .then((account) => {
     
-    //console.log(account.isVerified)
     let role = account.accountsRole
 
-
     if(role === 2) {
-        document.getElementById("free-hidden-text").style.display = "inherit";
+        document.getElementById("free-hidden-text").style.display = "inherit"
     }
 })
 
@@ -38,7 +36,6 @@ fetch("/api/movies")
                     <a class="btn btn-delete" onclick="deleting(${movie.idmovies})">Delete</a>
                 </div>
             </div>
-
             `
             movieWrapper.appendChild(movieDiv)
         })

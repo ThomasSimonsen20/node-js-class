@@ -3,7 +3,6 @@ import * as moviesRepo from "../database/repository/moviesRepo.js"
 import connection from "../database/conectMysql.js"
 import escape from "escape-html"
 
-
 const router = express.Router()
 
 let accountsid

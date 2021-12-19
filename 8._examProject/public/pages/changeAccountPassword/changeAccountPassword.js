@@ -9,11 +9,13 @@ function changePassword() {
     }).then(response => {
         if (response.status === 200) {
             location.href= "/"
-        } else {
-            console.log("Error changing password", response.status)
+        } 
+        
+        if (response.status === 400) {
+            toastr.info("Passwords doesn't match")
         }
     })
 }
 
 
-document.getElementById("updatePassword").addEventListener("click", changePassword);
+document.getElementById("updatePassword").addEventListener("click", changePassword)

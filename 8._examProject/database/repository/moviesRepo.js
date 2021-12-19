@@ -1,7 +1,6 @@
 import connection from "../conectMysql.js"
 
 
-
 export async function getMoviesFromID(accountsID) {
     return await new Promise(async (resolve, reject) => {
         try {

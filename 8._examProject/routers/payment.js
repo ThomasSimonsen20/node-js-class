@@ -13,12 +13,9 @@ import * as createPages from "../util/render.js"
 const successPage = createPages.createPageWithoutHeader("payment/successPage/success.html")
 const cancelPage = createPages.createPageWithoutHeader("payment/cancelPage/cancel.html")
 
-
-
 let products
 
-
- async function getProduct() {
+async function getProduct() {
   const [rows, columns] = await connection.execute("SELECT * FROM product")
   products = {id: rows[0].idproduct, priceInCents: rows[0].priceInCents, name: rows[0].name}
 } 

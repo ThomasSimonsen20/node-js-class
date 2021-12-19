@@ -24,13 +24,13 @@ export function jwtConfirmEmail(id, email) {
           expiresIn: '1d',
         },
         (err, emailToken) => {
-          const url = `http://localhost:8080/confirmation/${emailToken}`;
+          const url = `http://localhost:8080/confirmation/${emailToken}`
             
           transporter.sendMail({
             to: email,
             subject: 'Confirm Email',
             html: `Please click this link to confirm your account: <a href="${url}">Verify Email</a>`,
-          });
+          })
     })
 }
 
@@ -45,13 +45,13 @@ export function jwtForgotPassword(id, email) {
         expiresIn: '1d',
       },
       (err, emailToken) => {
-        const url = `http://localhost:8080/changePassword/${emailToken}`;
+        const url = `http://localhost:8080/changePassword/${emailToken}`
           
         transporter.sendMail({
           to: email,
           subject: 'change password on WatchedFlix',
           html: `Please click this link to change password: <a href="${url}">Change password</a>`,
-        });
+        })
   })
 }
 

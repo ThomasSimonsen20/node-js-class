@@ -38,7 +38,7 @@ export async function createAccount(account) {
     })
 } 
 
-export async function login(username) {
+export async function getAccountBasedOnName(username) {
     return await new Promise(async (resolve, reject) => {
         try {
             const [rows] = await connection.execute(`

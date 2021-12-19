@@ -36,15 +36,6 @@ function appendMessage(message) {
   messageContainer.append(messageElement)
 } 
 
-/*
-socket.on('user-connected', name => {
-  appendMessage(`${name} connected`)
-})
-
-socket.on('user-disconnected', name => {
-  appendMessage(`${name} disconnected`)
-}) */
-
 function sendContactMessage() {
   fetch("/api/contact", {
       method: "POST",
@@ -59,11 +50,12 @@ function sendContactMessage() {
           document.getElementById("email").value = ""
           document.getElementById("name").value = ""
           document.getElementById("message").value = ""
+          toastr.info("Email has been sent.")
                 
       } else {
-          console.log("Error sending the contact message", response.status);
+          console.log("Error sending the contact message", response.status)
       }
-  });
+  })
 }
 
-document.getElementById("contact-button").addEventListener("click", sendContactMessage);
+document.getElementById("contact-button").addEventListener("click", sendContactMessage)

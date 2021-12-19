@@ -16,7 +16,6 @@ const changingPasswordPage = createPages.createPageWithoutHeader("/changeAccount
 const forgotPasswordPage = createPages.createPageNotLoggedIn("/forgotPassword/forgotPassword.html")
 
 
-
 router.get("/", (req, res) => {
     res.send(loginPage)
 })

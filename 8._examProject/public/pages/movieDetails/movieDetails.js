@@ -121,7 +121,7 @@ function updateRating() {
         if (response.status === 200) {
             location.href= "/watched-movies"
         } else {
-            console.log("Error sending the contact message", response.status);
+            console.log("Error sending the contact message", response.status)
         }
     });
 }

@@ -19,22 +19,30 @@ app.use(session({
   }))
 import escape from "escape-html"
 
-
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
 
 import pagesRouter from "./routers/pages.js"
 import paymentRouter from "./routers/payment.js"
-import accountRouter from "./routers/account.js"
 import moviesRouter from "./routers/movies.js"
 import contactRouter from "./routers/contact.js"
+import accountRouter from "./routers/accounts/account.js"
+import loginRouter from "./routers/accounts/login.js"
+import registerRouter from "./routers/accounts/register.js"
+import verifictaionRouter from "./routers/accounts/verification.js"
+import changePasswordRouter from "./routers/accounts/changePassword.js"
 
 app.use(pagesRouter)
 app.use(paymentRouter)
 app.use(accountRouter)
 app.use(moviesRouter)
 app.use(contactRouter)
+app.use(loginRouter)
+app.use(registerRouter)
+app.use(verifictaionRouter)
+app.use(changePasswordRouter)
+
 
 const users = {}
 

@@ -10,13 +10,17 @@ function submitCreatedAccount() {
         })  
     }).then(response => {
         if (response.status === 200) {
-            location.href= "/watched-movies"
-            
-        } else {
+            location.href= "/watched-movies"  
+        } 
+        /*else {
             console.log("Error sending the contact message", response.status)
+        }*/
+
+        if(response.status === 409) {
+            toastr.info("Username already registered. Try another")
         }
     })
 }
 
 
-document.getElementById("createAccountButton").addEventListener("click", submitCreatedAccount);
+document.getElementById("createAccountButton").addEventListener("click", submitCreatedAccount)

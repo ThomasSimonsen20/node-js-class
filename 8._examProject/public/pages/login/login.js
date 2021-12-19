@@ -13,11 +13,11 @@ function login() {
             location.href= "/support"
         } else if (!data.isAdmin) {
             location.href= "/watched-movies"
-        }
-        else {
-            console.log("No user found")
-        }
+        } 
     })
+    .catch(error =>
+        toastr.info("Incorrect username or password, try again!")
+    )
 }
 
 
