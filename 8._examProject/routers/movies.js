@@ -18,13 +18,10 @@ router.get("/api/movies", async (req, res) => {
         accountsid = req.session.accountID
     } 
 
-    //const result = moviesRepo.getMoviesFromID(accountsid)
-    //result ? res.send(result) : res.sendStatus(500)
-   
-    const [rows] = await connection.execute("SELECT * FROM movies WHERE accountsid = ?", [accountsid])
+    const result = await moviesRepo.getMoviesFromID(accountsid)
+    movies = result
 
-    movies = rows
-    res.send(rows)
+    res.send(result)
 }) 
 
 router.patch("/api/movies", async (req, res) => {

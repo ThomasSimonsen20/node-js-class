@@ -11,19 +11,22 @@ const saltRounds = 12
 router.post("/api/accounts", async (req, res) => {
 
     const accountsPasswordNotHashed = escape(req.body.accountsPassword)
+    const accountsPasswordTwo = escape(req.body.accountsPasswordTwo)
     const accountsUsername = escape(req.body.accountsUsername)
     const accountsRole = escape(req.body.accountsRole)
     const accountsEmail = escape(req.body.accountsEmail)
 
-    const result = await accountRepo.getAccountBasedOnName(accountsUsername)
+    if(accountsPasswordNotHashed !== accountsPasswordTwo) {
+        return res.sendStatus(400)
+    }
 
-    console.log(result.length)
+    const result = await accountRepo.getAccountBasedOnName(accountsUsername)
 
     if(result.length < 1) {
         bcrypt.hash(accountsPasswordNotHashed, saltRounds, async (err, accountsPasswordHashed) => {
 
             let account = {accountsUsername: accountsUsername, accountsPassword: accountsPasswordHashed, accountsRole: accountsRole, accountsEmail: accountsEmail}
-    
+
             const result = await accountRepo.createAccount(account)
     
             if(result) {

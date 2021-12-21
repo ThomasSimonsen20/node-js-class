@@ -13,13 +13,51 @@
         </div>
 
         <div class="input-container">
+            <label for="passwordTwo" class="label">Confirm password</label>
+            <input class="password" id="passwordTwo" type="password" value="admin" required>
+        </div>
+
+        <div class="input-container">
             <label for="email" class="label">Email</label>
             <input class="email" id="email" type="email" value="bestpalaeu20@gmail.com" required>
         </div>
-        
+
+        <div class="tos-container">
+            <p class="tos-text"><input id="checkbox" type="checkbox" name="terms" class="tos-input" required> I accept the <a class="tos-link" id="open-modal">Terms and Conditions</a></p>
+        </div>
+
         <button id="createAccountButton" class="btn">Create Account</button>
     </div>
 </div>
+
+<div class="modal" id="modal">
+    <div class="modal-header">
+      <div class="title">Terms of Service</div>
+      <button id="close-modal" class="close-button">&times;</button>
+    </div>
+    <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Recusandae facilis placeat quam quidem dolor aspernatur facere tempora voluptate corporis consequatur, 
+        labore suscipit fugit dolore consectetur et nihil quaerat omnis in impedit incidunt aut aliquam cumque doloremque?
+        Laborum molestias nihil similique voluptates cum reiciendis, iure hic? 
+        Ad, facere? Qui excepturi possimus sint corporis cum repellat numquam. Unde veniam aspernatur voluptate!
+        Natus quis sapiente similique sed cumque soluta ut delectus sint voluptate, 
+        dolorem exercitationem eligendi corporis dolore in saepe recusandae a harum beatae eaque ex! Placeat neque
+        ipsam impedit magnam cupiditate ullam deleniti doloremque, est repellat voluptate quasi aut expedita porro
+        explicabo.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        Quaerat perspiciatis excepturi animi recusandae eum cumque enim dolores eaque distinctio assumenda? 
+        Illo in est ratione culpa laboriosam exercitationem impedit totam ipsum. 
+        Suscipit deleniti repellendus atque sapiente nihil voluptas perferendis corrupti. 
+        Consequatur, quia velit! Optio commodi recusandae nesciunt, molestias eum amet veritatis eveniet
+        vel deleniti unde minus illum natus sint alias dicta cumque iste ipsam sequi. Saepe non a, 
+        possimus maxime repellendus voluptate quibusdam temporibus id qui! Omnis expedita aperiam cumque aspernatur
+        ducimus rem, labore delectus corporis non minima libero. Et inventore aliquid itaque sequi reprehenderit
+        magni non eaque labore repellat quidem!
+    </div>
+  </div>
+
+  <div id="overlay"></div>
 
 
 <link rel="stylesheet" href="../pages/createAccount/createAccount.css">

@@ -78,6 +78,8 @@ function checkIfMovieAlreadyWatched(id) {
     .then(( data ) => {
         accountRole = data.accountRole
 
+        console.log(data.movies)
+
         data.movies.map((movie) => {
             if (movie.movieimdb === id) {
                 isWatchedMovie = movie.movierating
@@ -156,4 +158,4 @@ function setRating(ev){
         }
     });
     document.querySelector('.stars').setAttribute('data-rating', num);
-}
+} 
