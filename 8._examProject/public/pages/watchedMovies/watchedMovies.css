@@ -103,6 +103,12 @@ body {
 .rating {
     margin-bottom: 0;
     margin-top: 0.5rem;
+    color: white;
+}
+
+.star {
+    color: goldenrod;
+    font-size: 1.1rem;
 }
 
 .select-container {

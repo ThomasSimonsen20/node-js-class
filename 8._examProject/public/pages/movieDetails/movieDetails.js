@@ -14,6 +14,7 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
         let isWatched = ""
         let onclickFunction = "saveMovieToWatchedList()"
         let buttonText = "Save to watched list"
+        let isWatchedClass = ""
 
         if(accountRole === 2 && movieArrayLength === 2) {
             onclickFunction = "goToSelectProduct()"
@@ -23,9 +24,10 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
 
         if (isWatchedMovie) {
             movieRating = isWatchedMovie
-            isWatched = "Movie is on watched list"
+            isWatched = "Watched"
             onclickFunction = "updateRating()"
             buttonText = "Update Rating"
+            isWatchedClass = "isWatched"
         }
 
 
@@ -37,7 +39,7 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
             <div class="info-container">
                 <div class="movieTitle-container">
                     <h3 class="movieTitle" id="movietitle">${(movie.Title)}</h3>
-                    <p>${(isWatched)}</p>
+                    <p class="${(isWatchedClass)}" id="isWatched">${(isWatched)}</p>
                 </div>
                 <ul class="listGroup">
                     <li class="listGroupItem"><strong>Genre:</strong> ${movie.Genre}</li>

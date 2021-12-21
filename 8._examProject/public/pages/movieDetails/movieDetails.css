@@ -24,9 +24,29 @@ body {
     align-items: center;
 }
 
+.movieTitle-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+
 .movieTitle {
     color: white;
 }
+
+.isWatched {
+    color: white;
+    background-color: black;
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
 
 .img-container {
     grid-area: 1 / 2 / 2 / 3;
