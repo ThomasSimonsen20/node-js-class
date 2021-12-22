@@ -27,6 +27,7 @@ export function jwtConfirmEmail(id, email) {
           const url = `http://localhost:8080/confirmation/${emailToken}`
             
           transporter.sendMail({
+            from: `"WatchedFlix" <${process.env.NODEMAILER_EMAIL}>`, 
             to: email,
             subject: 'Confirm Email',
             html: `Please click this link to confirm your account: <a href="${url}">Verify Email</a>`,
@@ -46,9 +47,9 @@ export function jwtForgotPassword(id, email) {
       },
       (err, emailToken) => {
         const url = `http://localhost:8080/changePassword/${emailToken}`
-        console.log(url)
           
         transporter.sendMail({
+          from: `"WatchedFlix" <${process.env.NODEMAILER_EMAIL}>`, 
           to: email,
           subject: 'change password on WatchedFlix',
           html: `Please click this link to change password: <a href="${url}">Change password</a>`,
