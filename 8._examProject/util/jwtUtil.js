@@ -46,6 +46,7 @@ export function jwtForgotPassword(id, email) {
       },
       (err, emailToken) => {
         const url = `http://localhost:8080/changePassword/${emailToken}`
+        console.log(url)
           
         transporter.sendMail({
           to: email,

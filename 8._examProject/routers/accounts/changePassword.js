@@ -13,6 +13,7 @@ router.post("/api/accounts/forgot-password", async (req, res) => {
 
     const result = await accountRepo.getAccountBasedOnName(accountsUsername)
 
+
     try {
         utilJwt.jwtForgotPassword(result[0].idaccounts, result[0].accountsEmail)
         res.sendStatus(200)

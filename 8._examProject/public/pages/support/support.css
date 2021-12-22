@@ -63,6 +63,20 @@ body {
   margin: auto;
 }
 
+#correct-user-container {
+  grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    display: grid;
+}
+
+.correct-user-para {
+  width: 10rem;
+  color: white;
+  text-align: center;
+}
+
 #label {
   margin-top: 1rem;
 }
@@ -76,4 +90,18 @@ body {
 }
 .send-message-form button {
   display: none;
+}
+
+.connected-users-headline {
+  text-align: center;
+  color: white;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.connected-users {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
 }
