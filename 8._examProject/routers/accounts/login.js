@@ -15,10 +15,10 @@ const rateLimiter = rateLimit({
 router.use("/api/accounts/login", rateLimiter)
 
 router.post("/api/accounts/login", async (req, res) => {
-    req.session.username = escape(req.body.accountsUsername)
+    const username = escape(req.body.accountsUsername)
     const password = escape(req.body.accountsPassword)
     
-    const result = await accountRepo.getAccountBasedOnName(req.session.username)
+    const result = await accountRepo.getAccountBasedOnName(username)
 
     if(result[0]) {
         bcrypt.compare(password, result[0].accountsPassword, (err, newResult) => {
@@ -32,6 +32,7 @@ router.post("/api/accounts/login", async (req, res) => {
                 if(result[0].accountsRole === 9) {
                     res.send({isAdmin: true})
                 } else {
+                    req.session.username = escape(req.body.accountsUsername)
                     res.send({isAdmin: false})
                 }
             } else {

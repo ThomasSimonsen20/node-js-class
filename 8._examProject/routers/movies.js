@@ -1,69 +1,62 @@
 import express from "express"
 import * as moviesRepo from "../database/repository/moviesRepo.js"
-import connection from "../database/conectMysql.js"
 import escape from "escape-html"
+import { isAuthorized } from '../util/authentication.js'
+
 
 const router = express.Router()
 
-let accountsid
 let movies
 
-router.get("/api/movies/current", async (req, res) => {
+router.get("/api/movies/current", isAuthorized, async (req, res) => {
     res.send({movies: movies, accountRole: req.session.accountRole})
 }) 
 
-router.get("/api/movies", async (req, res) => {
+router.get("/api/movies", isAuthorized, async (req, res) => {
 
+    /*
     if(req.session.accountID != null) {
         accountsid = req.session.accountID
-    } 
+    } */
 
-    const result = await moviesRepo.getMoviesFromID(accountsid)
+    const result = await moviesRepo.getMoviesFromID(req.session.accountID)
     movies = result
 
     res.send(result)
 }) 
 
-router.patch("/api/movies", async (req, res) => {
+router.patch("/api/movies", isAuthorized, async (req, res) => {
 
-    if(req.session.accountID != null) {
-        accountsid = req.session.accountID
-    } 
-    
     let movie = {
         movierating: escape(req.body.movierating),
-        accountsid: accountsid,
+        accountsid: req.session.accountID,
         movieimdb: escape(req.body.movieimdb)
     }
 
-    const result = moviesRepo.updateMovieRating(movie)
+    const result = await moviesRepo.updateMovieRating(movie)
 
     result ? res.sendStatus(200) : res.sendStatus(500)
 })
 
-router.post("/api/movies", async (req, res) => {
-
-    if(req.session.accountID != null) {
-        accountsid = req.session.accountID
-    } 
+router.post("/api/movies", isAuthorized, async (req, res) => {
     
     let movie = {
         movietitle: escape(req.body.movietitle),
         movieimdb: escape(req.body.movieimdb),
         movieposter: escape(req.body.movieposter),
         movierating: escape(req.body.movierating),
-        accountsid: accountsid
+        accountsid: req.session.accountID
     }
 
-    const result = moviesRepo.insertMovie(movie)
+    const result = await moviesRepo.insertMovie(movie)
 
     result ? res.sendStatus(200) : res.sendStatus(500)
 })
 
-router.delete("/api/movies", async (req, res) => {
+router.delete("/api/movies", isAuthorized, async (req, res) => {
     const movieID = req.body.id
 
-    const result = moviesRepo.deleteMovie(movieID)
+    const result = await moviesRepo.deleteMovie(movieID)
 
     result ? res.sendStatus(200) : res.sendStatus(500)
 })

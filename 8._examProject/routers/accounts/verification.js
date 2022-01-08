@@ -24,6 +24,7 @@ router.get('/confirmation/:token', async (req, res) => {
       await accountRepo.updateIsVerified(1, result.user)
       req.session.accountID = result.user
       req.session.loggedIn = true
+      req.session.isVerified = 1
     } catch (e) {
       res.sendStatus(500)
     }

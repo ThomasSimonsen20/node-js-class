@@ -80,8 +80,6 @@ function checkIfMovieAlreadyWatched(id) {
     .then(( data ) => {
         accountRole = data.accountRole
 
-        console.log(data.movies)
-
         data.movies.map((movie) => {
             if (movie.movieimdb === id) {
                 isWatchedMovie = movie.movierating
@@ -130,34 +128,36 @@ function updateRating() {
     });
 }
 
-
 function loadStars(){
-    let stars = document.querySelectorAll('.star');
-    stars.forEach(function(star){
-        star.addEventListener('click', setRating); 
-    });
+    let stars = document.querySelectorAll('.star')
+    let starsArray = [...stars]
+    starsArray.map((star) => {
+        star.addEventListener('click', setRating)
+    })
     
-    let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'));
-    let target = stars[rating - 1];
-    target.dispatchEvent(new MouseEvent('click'));
-};
+    let rating = parseInt(document.querySelector('.stars').getAttribute('data-rating'))
+    let target = stars[rating - 1]
+    target.dispatchEvent(new MouseEvent('click'))
+}
 
 function setRating(ev){
-    let span = ev.currentTarget;
-    let stars = document.querySelectorAll('.star');
-    let match = false;
-    let num = 0;
-    stars.forEach(function(star, index){
+    let span = ev.currentTarget
+    let stars = document.querySelectorAll('.star')
+    let match = false
+    let num = 0
+    let starsArray = [...stars]
+
+    starsArray.map((star, index) => {
         if(match){
-            star.classList.remove('rated');
+            star.classList.remove('rated')
         }else{
-            star.classList.add('rated');
+            star.classList.add('rated')
         }
-        //are we currently looking at the span that was clicked
+        
         if(star === span){
-            match = true;
-            num = index + 1;
+            match = true
+            num = index + 1
         }
-    });
-    document.querySelector('.stars').setAttribute('data-rating', num);
+    })
+    document.querySelector('.stars').setAttribute('data-rating', num)
 } 

@@ -2,6 +2,7 @@ import express from "express"
 const router = express.Router()
 
 import * as createPages from "../util/render.js"
+import { isAuthorized, isSupport, isPasswordBeingChanged } from '../util/authentication.js'
 
 const searchForMoviesPage = createPages.createPage("searchForMovies/searchForMovies.html")
 const movieDetailsPage = createPages.createPage("movieDetails/movieDetails.html", { title: "Movie detail - WatchedFlix"})
@@ -20,78 +21,45 @@ router.get("/", (req, res) => {
     res.send(loginPage)
 })
 
-router.get("/forgot-password", (req, res) => {
-    res.send(forgotPasswordPage)
-})
-
-
-router.get("/contact", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
-        res.send(contactPage)
-    }
-}) 
-
-router.get("/change-password", (req, res) => {
-    if(!req.session.passwordBeingChanged) {
-        res.send(loginPage)
-    } else {
-        req.session.passwordBeingChanged = false
-        res.send(changingPasswordPage)
-    }
-}) 
-
-router.get("/support", (req, res) => {
-    if (req.session.accountRole === 9 && req.session.loggedIn) {
-        res.send(supportPage)
-    } else {
-        res.send(loginPage)
-    }
-}) 
-
-router.get("/search-movies", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
-        res.send(searchForMoviesPage)
-    }
-})
-
-router.get("/movie-details", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
-        res.send(movieDetailsPage)
-    }
-})
-
 router.get("/create-account", (req, res) => {
     res.send(createAccountPage)
 })
 
-router.get("/watched-movies", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
+router.get("/forgot-password", (req, res) => {
+    res.send(forgotPasswordPage)
+})
+
+router.get("/contact", isAuthorized, (req, res) => {
+        res.send(contactPage)
+}) 
+
+router.get("/change-password", isPasswordBeingChanged, (req, res) => {
+        req.session.passwordBeingChanged = false
+        res.send(changingPasswordPage)
+}) 
+
+router.get("/support", isSupport, (req, res) => {
+        res.send(supportPage)
+})
+
+router.get("/search-movies",isAuthorized, (req, res) => {
+        res.send(searchForMoviesPage)
+})
+
+router.get("/movie-details", isAuthorized, (req, res) => {
+        res.send(movieDetailsPage)
+})
+
+router.get("/watched-movies", isAuthorized, (req, res) => {
         res.send(watchedMoviesPage)
-    }
 })
 
-router.get("/account-settings", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
+router.get("/account-settings", isAuthorized, (req, res) => {
         res.send(accountSettingsPage)
-    } 
 })
 
-router.get("/select-product", (req, res) => {
-    if(!req.session.loggedIn) {
-        res.send(loginPage)
-    } else {
+router.get("/select-product", isAuthorized, (req, res) => {
         res.send(selectProductPage)
-    } 
 })
 
 

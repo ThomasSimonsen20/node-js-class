@@ -12,11 +12,12 @@ const io = new Server(server)
 
 import session from "express-session"
 app.use(session({
-    secret: 'secret',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     cookie: { secure: false }
   }))
+
 import escape from "escape-html"
 
 app.use(express.static('public'))

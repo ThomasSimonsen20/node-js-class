@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/schools", async (req, res) => {
-    const [ rows, columns] = await connection.execute("SELECT * FROM schools")
+    const [rows, columns] = await connection.execute("SELECT * FROM schools")
     res.send(rows)
 })
 

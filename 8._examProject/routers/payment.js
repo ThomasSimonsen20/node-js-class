@@ -49,7 +49,7 @@ router.post("/create-checkout-session", async (req,res) => {
 
 router.get("/successful-payment", async (req, res) => {
     try {
-        const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+        await stripe.checkout.sessions.retrieve(req.query.session_id);
         res.send(successPage)
     } catch (error) {
         res.redirect("/")

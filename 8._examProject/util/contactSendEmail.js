@@ -29,7 +29,7 @@ export function sendEmail(body) {
       transporter.sendMail({
         from: `"WatchedFlix Client" <${process.env.NODEMAILER_EMAIL}>`, 
         to: "bestpalaeu20@gmail.com", 
-        subject: "Node contact request", 
+        subject: "New support ticket", 
         html: output, 
     });
 }

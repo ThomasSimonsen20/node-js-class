@@ -1,10 +1,10 @@
-let isVerified
 
-fetch("/api/account")
+fetch("/api/account/roleAndVerified")
 .then(response => response.json())
-.then((account) => {
-    
-    isVerified = account.isVerified
+.then(( account ) => {
+    let isVerified = account.isVerified
+
+    console.log(isVerified)
 
     if(isVerified === 0) {
         document.getElementById("verify-hidden-text").style.display = "block";

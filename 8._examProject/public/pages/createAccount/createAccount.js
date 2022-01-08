@@ -22,9 +22,6 @@ function submitCreatedAccount() {
         if (response.status === 200) {
             location.href= "/watched-movies"  
         } 
-        /*else {
-            console.log("Error sending the contact message", response.status)
-        }*/
 
         if(response.status === 409) {
             toastr.info("Username already registered. Try another")
@@ -36,7 +33,6 @@ function submitCreatedAccount() {
 
     })
 }
-
 
 
 function openModal() {

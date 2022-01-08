@@ -1,10 +1,9 @@
 let fetchedMovies
 
-fetch("/api/account")
+fetch("/api/account/role")
 .then(response => response.json())
-.then((account) => {
-    
-    let role = account.accountsRole
+.then((accountRole) => {
+    let role = accountRole.accountRole
 
     if(role === 2) {
         document.getElementById("free-hidden-text").style.display = "inherit"
@@ -78,7 +77,6 @@ function movieSelected(value) {
 
 function deleting(value){
     const dataObject = {id: value}
-    console.log(dataObject)
 
     fetch('/api/movies/', { 
         method: 'DELETE',   
@@ -128,3 +126,15 @@ fetch("/api/movies")
             movieWrapper.appendChild(movieDiv)
         })
     }) */
+
+    /*
+fetch("/api/account")
+.then(response => response.json())
+.then((account) => {
+    
+    let role = account.accountsRole
+
+    if(role === 2) {
+        document.getElementById("free-hidden-text").style.display = "inherit"
+    }
+})*/
