@@ -8,7 +8,7 @@ function submitCreatedAccount() {
         return
     }
 
-    fetch("/api/accounts", {
+    fetch("/api/account", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

@@ -12,9 +12,9 @@ const rateLimiter = rateLimit({
     message: "To many tries try agian in 15min" 
 })
 
-router.use("/api/accounts/login", rateLimiter)
+router.use("/api/account/login", rateLimiter)
 
-router.post("/api/accounts/login", async (req, res) => {
+router.post("/api/account/login", async (req, res) => {
     const username = escape(req.body.accountsUsername)
     const password = escape(req.body.accountsPassword)
     

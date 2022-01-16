@@ -4,8 +4,6 @@ fetch("/api/account/roleAndVerified")
 .then(( account ) => {
     let isVerified = account.isVerified
 
-    console.log(isVerified)
-
     if(isVerified === 0) {
         document.getElementById("verify-hidden-text").style.display = "block";
 
@@ -40,12 +38,13 @@ function checkout() {
 }
 
 function sendLink() {
-    fetch("/api/accounts/resend-verification", {
+    fetch("/api/account/resend-verification", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" }
     }).then(response => {
         if (response.status === 200) {
-            document.getElementById("send-email-confirmation").style.display = "block"
+            toastr.info("New email has been sent")
+
         } else {
             console.log("Error sending the contact message", response.status)
         } 

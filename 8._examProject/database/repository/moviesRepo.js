@@ -44,7 +44,7 @@ export async function updateMovieRating(movie) {
 export async function deleteMovie(movieID) {
     return await new Promise(async (resolve, reject) => {
         try {
-            await connection.execute('DELETE FROM movies WHERE idmovies = ?', [movieID])
+            await connection.execute("DELETE FROM movies WHERE idmovies = ?", [movieID])
             
             resolve(true)
         } catch {

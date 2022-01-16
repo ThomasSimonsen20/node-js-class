@@ -1,7 +1,7 @@
 
 <div class="form-container">
     <div class="form">
-        <label class="headline">Change settings</label>
+        <label class="headline">Change Password</label>
         <div class="input-container">
             <label for="currentPassword" class="label">Current pasword</label>
             <input class="password" id="currentPassword" type="password" required>         
@@ -20,11 +20,23 @@
         <button id="updatePassword" class="btn">Update</button>
     </div>
 
+    <div class="form">
+        <label class="headline">Change Username</label>
+        <div class="input-container" id="input-username">
+            <label for="newUsername" class="label">New Username</label>
+            <input class="password" id="newUsername" type="text" required>         
+         </div>
+
+        <button id="updateUsername" class="btn">Update</button>
+    </div>
+
     <div id="upgrade-container" class="form">
         <h1 class="upgrade-headline">Click below to upgrade to Premium</h1>
         <button id="upgradeButton" class="btn">Upgrade to premium</button>
     </div>
 </div>
+
+
 
 <link rel="stylesheet" href="../pages/accountSettings/accountSettings.css">
 <script src="../pages/accountSettings/accountSettings.js"></script>

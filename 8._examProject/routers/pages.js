@@ -4,17 +4,38 @@ const router = express.Router()
 import * as createPages from "../util/render.js"
 import { isAuthorized, isSupport, isPasswordBeingChanged } from '../util/authentication.js'
 
-const searchForMoviesPage = createPages.createPage("searchForMovies/searchForMovies.html")
-const movieDetailsPage = createPages.createPage("movieDetails/movieDetails.html", { title: "Movie detail - WatchedFlix"})
-const loginPage = createPages.createPageNotLoggedIn("login/login.html")
-const createAccountPage = createPages.createPageNotLoggedIn("createAccount/createAccount.html")
-const watchedMoviesPage = createPages.createPage("watchedMovies/watchedMovies.html")
-const accountSettingsPage = createPages.createPage("accountSettings/accountSettings.html")
-const selectProductPage = createPages.createPage("payment/selectProduct/selectProduct.html")
-const contactPage = createPages.createPage("contact/contact.html")
-const supportPage = createPages.createPageWithoutHeader("support/support.html")
-const changingPasswordPage = createPages.createPageWithoutHeader("/changeAccountPassword/changeAccountPassword.html")
-const forgotPasswordPage = createPages.createPageNotLoggedIn("/forgotPassword/forgotPassword.html")
+const searchForMoviesPage = createPages.createPage("searchForMovies/searchForMovies.html", {
+        title: "Search - WatchedFlix"})
+
+const movieDetailsPage = createPages.createPage("movieDetails/movieDetails.html", { 
+        title: "Movie details - WatchedFlix"})
+
+const loginPage = createPages.createPageNotLoggedIn("login/login.html", { 
+        title: "Login - WatchedFlix"})
+
+const createAccountPage = createPages.createPageNotLoggedIn("createAccount/createAccount.html", { 
+        title: "Create Account - WatchedFlix"})
+
+const watchedMoviesPage = createPages.createPage("watchedMovies/watchedMovies.html", { 
+        title: "Watched - WatchedFlix"})
+
+const accountSettingsPage = createPages.createPage("accountSettings/accountSettings.html", { 
+        title: "Settings - WatchedFlix"})
+
+const selectProductPage = createPages.createPage("payment/selectProduct/selectProduct.html", { 
+        title: "Upgrade - WatchedFlix"})
+
+const contactPage = createPages.createPage("contact/contact.html", { 
+        title: "Contact - WatchedFlix"})
+
+const supportPage = createPages.createPageWithoutHeader("support/support.html", { 
+        title: "Support - WatchedFlix"})
+
+const changingPasswordPage = createPages.createPageWithoutHeader("/changeAccountPassword/changeAccountPassword.html", { 
+        title: "Change Password - WatchedFlix"})
+
+const forgotPasswordPage = createPages.createPageNotLoggedIn("/forgotPassword/forgotPassword.html", { 
+        title: "Forgot Password - WatchedFlix"})
 
 
 router.get("/", (req, res) => {

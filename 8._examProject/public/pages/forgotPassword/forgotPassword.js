@@ -1,5 +1,5 @@
 function sendResetPasswordEmail() {
-    fetch("/api/accounts/forgot-password", {
+    fetch("/api/account/forgot-password", {
         method: "POST",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

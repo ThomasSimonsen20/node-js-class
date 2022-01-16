@@ -30,6 +30,9 @@ fetch(domainURL + localStorage.getItem('movieID') + apiKey)
             isWatchedClass = "isWatched"
         }
 
+        if(movie.Poster === "N/A") {
+            movie.Poster = "../images/noPicture.jpg"
+        }
 
         const movieWrapper = document.getElementById("movies-wrapper")
         const movieDiv = document.createElement("div")

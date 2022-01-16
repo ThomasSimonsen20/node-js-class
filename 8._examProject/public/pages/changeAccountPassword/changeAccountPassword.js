@@ -1,5 +1,5 @@
 function changePassword() {
-    fetch("/api/accounts/change-password-without-current-password", {
+    fetch("/api/account/change-password-without-current-password", {
         method: "PUT",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({

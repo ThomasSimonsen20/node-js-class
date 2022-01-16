@@ -13,6 +13,10 @@ function getMoviesFromAPI() {
 
         
         movies.map(movie => {
+            if(movie.Poster === "N/A") {
+                movie.Poster = "../images/noPicture.jpg"
+            }
+
             const movieDiv = document.createElement("div")
             movieDiv.classList.add("movie-container")
             movieDiv.innerHTML = `
@@ -33,7 +37,6 @@ function getMoviesFromAPI() {
 }
 
 function movieSelected(value) {
-    console.log(value)
     localStorage.setItem('movieID', value)
     location.href = "/movie-details"
 } 

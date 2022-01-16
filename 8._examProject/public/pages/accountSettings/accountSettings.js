@@ -13,7 +13,7 @@ function checkout() {
 }
 
 function changePassword() {
-    fetch("/api/accounts/change-password", {
+    fetch("/api/account/change-password", {
         method: "PUT",
         headers: { "Content-type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
@@ -39,6 +39,27 @@ function changePassword() {
     })
 }
 
+function changeUsername() {
+    fetch("/api/account/change-username", {
+        method: "PUT",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            newUsername: document.getElementById("newUsername").value,
+        })  
+    }).then(response => {
+        if (response.status === 200) {
+            document.getElementById("newUsername").value = ""
+            toastr.info("Succesfully changed username")
+        }
 
+        if(response.status === 409) {
+            toastr.info("Username already registered. Try another")
+        }
+    })
+}
+
+
+
+document.getElementById("updateUsername").addEventListener("click", changeUsername)
 document.getElementById("updatePassword").addEventListener("click", changePassword)
 document.getElementById("upgradeButton").addEventListener("click", checkout)

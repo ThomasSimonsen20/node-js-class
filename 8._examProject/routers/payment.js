@@ -16,7 +16,7 @@ const cancelPage = createPages.createPageWithoutHeader("payment/cancelPage/cance
 let products
 
 async function getProduct() {
-  const [rows, columns] = await connection.execute("SELECT * FROM product")
+  const [rows] = await connection.execute("SELECT * FROM product")
   products = {id: rows[0].idproduct, priceInCents: rows[0].priceInCents, name: rows[0].name}
 } 
 

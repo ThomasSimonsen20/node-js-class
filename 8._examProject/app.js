@@ -49,8 +49,8 @@ const users = {}
 
 io.on('connection', (socket) => {
   socket.on('new-user', name => {
-    users[socket.id] = name
-    socket.broadcast.emit('user-connected-admin', {name: name, id: socket.id})
+    users[socket.id] = escape(name)
+    socket.broadcast.emit('user-connected-admin', {name: escape(name), id: socket.id})
   })
   socket.on('send-message-to-admin', (message) => {
     socket.broadcast.emit('chat-message-admin', { message: escape(message), name: users[socket.id], id: socket.id })
@@ -69,3 +69,4 @@ const PORT = process.env.PORT || 8080
 server.listen(PORT, (error) => {
     console.log("Server is running on ", PORT)
 })
+

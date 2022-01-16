@@ -8,7 +8,7 @@ import bcrypt from "bcrypt"
 
 const saltRounds = 12
 
-router.post("/api/accounts", async (req, res) => {
+router.post("/api/account", async (req, res) => {
 
     const accountsPasswordNotHashed = escape(req.body.accountsPassword)
     const accountsPasswordTwo = escape(req.body.accountsPasswordTwo)

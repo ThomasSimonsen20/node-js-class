@@ -8,7 +8,7 @@ import bcrypt from "bcrypt"
 
 const saltRounds = 12
 
-router.post("/api/accounts/forgot-password", async (req, res) => {
+router.post("/api/account/forgot-password", async (req, res) => {
     const accountsUsername = escape(req.body.accountsUsername)
 
     const result = await accountRepo.getAccountBasedOnName(accountsUsername)
@@ -22,7 +22,7 @@ router.post("/api/accounts/forgot-password", async (req, res) => {
     }
 })
 
-router.put("/api/accounts/change-password-without-current-password", async (req, res) => {
+router.put("/api/account/change-password-without-current-password", async (req, res) => {
     const accountID = req.session.accountID
     const newPasswordOne = escape(req.body.newPasswordOne)
     const newPasswordTwo = escape(req.body.newPasswordTwo)
@@ -37,7 +37,7 @@ router.put("/api/accounts/change-password-without-current-password", async (req,
     }
 })
 
-router.put("/api/accounts/change-password", async (req, res) => {
+router.put("/api/account/change-password", async (req, res) => {
     const currentPassword = escape(req.body.currentPassword)
     const newPasswordOne = escape(req.body.newPasswordOne)
     const newPasswordTwo = escape(req.body.newPasswordTwo)

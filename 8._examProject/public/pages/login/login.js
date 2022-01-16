@@ -1,5 +1,6 @@
+
 function login() {
-    fetch("/api/accounts/login", {
+    fetch("/api/account/login", {
         method: "POST",
         headers: { "Content-Type": "application/json; charset=UTF-8" },
         body: JSON.stringify({
@@ -19,7 +20,6 @@ function login() {
         toastr.info("Incorrect username or password, try again!")
     )
 }
-
 
 function createNewAccount() {
     location.href = "/create-account"

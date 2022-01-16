@@ -14,11 +14,6 @@ router.get("/api/movies/current", isAuthorized, async (req, res) => {
 
 router.get("/api/movies", isAuthorized, async (req, res) => {
 
-    /*
-    if(req.session.accountID != null) {
-        accountsid = req.session.accountID
-    } */
-
     const result = await moviesRepo.getMoviesFromID(req.session.accountID)
     movies = result
 

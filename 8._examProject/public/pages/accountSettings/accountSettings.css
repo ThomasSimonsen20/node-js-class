@@ -68,6 +68,10 @@ body {
     width: 100%;
 }
 
+#input-username {
+    margin-top: 3rem;
+}
+
 .btn {
     background-color: #08d;
     border-radius: 12px;
