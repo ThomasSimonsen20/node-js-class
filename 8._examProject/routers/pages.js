@@ -54,15 +54,6 @@ router.get("/contact", isAuthorized, (req, res) => {
         res.send(contactPage)
 }) 
 
-router.get("/change-password", isPasswordBeingChanged, (req, res) => {
-        req.session.passwordBeingChanged = false
-        res.send(changingPasswordPage)
-}) 
-
-router.get("/support", isSupport, (req, res) => {
-        res.send(supportPage)
-})
-
 router.get("/search-movies",isAuthorized, (req, res) => {
         res.send(searchForMoviesPage)
 })
@@ -81,6 +72,15 @@ router.get("/account-settings", isAuthorized, (req, res) => {
 
 router.get("/select-product", isAuthorized, (req, res) => {
         res.send(selectProductPage)
+})
+
+router.get("/change-password", isPasswordBeingChanged, (req, res) => {
+        req.session.passwordBeingChanged = false
+        res.send(changingPasswordPage)
+}) 
+
+router.get("/support", isSupport, (req, res) => {
+        res.send(supportPage)
 })
 
 

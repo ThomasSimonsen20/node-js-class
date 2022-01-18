@@ -31,7 +31,7 @@ router.post("/api/account", async (req, res) => {
     
             if(result) {
                 req.session.accountID = result.insertId
-                req.session.accountRole =  req.body.accountsRole
+                req.session.accountRole =  accountsRole
                 req.session.isVerified = 0
                 req.session.loggedIn = true
                 req.session.username = accountsUsername

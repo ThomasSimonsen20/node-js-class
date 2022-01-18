@@ -1,0 +1,139 @@
+import connection from "../../database/conectMysql.js"
+- Vi importer vores connect fra det script hvor vi opretter forbindelsen med vores login info.
+
+const [rows,fields]
+- I rows giver også data'en der ligger i vores rows
+- fields giver os ColumnDefinition, altså info om alle kolonnerne, f.eks. name, columnLength, schemalength etc..
+
+return await new Promise(async (resolve, reject)
+- Vi bruger resolve, hvis vores try er gået godt, altså vi sender et promise med noget kode der er gået godt.
+- Reject bruger vi når vi har har noget kode der fejler, så der ville vi retunere en error.
+
+rows ? resolve(rows) : resolve(null)
+- Hvis der er noget i rows, så retunere vi rows, ellers retunere vi null.
+
+WHERE accountsid = ? AND movieimdb = ?"
+    ,[movie.movierating, movie.accountsid, movie.movieimdb]
+- Når vi bruger ? og der efter laver , [] så er det et preparedStatement, hvilket betyder vi ikke injecter kode direkte ind i databasen.
+
+import dotenv from "dotenv"
+dotenv.config()
+- Kør bare vi kan hente vores variable fra vores .env fil, som er et fil der ikke bliver oploadet til git, så det er en lokal hemmelig fil.
+
+Headers
+- Har lavet 2 headers, så vi endelig bare har til både loggedin og ikke loggedin.
+
+fetch("/api/account/roleAndVerified")
+.then(response => response.json())
+.then(( account ) => {
+- Når vi laver fetch sådan her er det altid en getter vi kalder?, og med første .then laver vi vores response om til JSON, så vi kan bruge data'en.
+- The json() method of the Response interface takes a Response stream and reads it to completion. It returns a promise which resolves with the result of parsing the body text as JSON.
+
+Header.js
+function freeAndVerified() {
+    document.getElementById("freeUser").style.display = "inline";
+    document.getElementById("notVerified").style.display = "none";
+}
+- De forskellige functioner bestemmer hvad der skal vises i headeren, f.eks. om vi er verified og free eller premium user.
+
+fetch("/api/accounts/change-password", {
+        method: "PUT",
+        headers: { "Content-type": "application/json; charset=UTF-8" },
+        body: JSON.stringify({
+            currentPassword: document.getElementById("currentPassword").value,
+            newPasswordOne: document.getElementById("newPasswordOne").value,
+            newPasswordTwo: document.getElementById("newPasswordTwo").value
+        })
+- Når det ikke bare er en getter fetch, så skal vi give forskellige informationer med. f.eks. hvad METHOD Vi kalder, altså en PUT her. 
+- I vores headers, fortæller vi endelig bare at den type data vi sender er JSON, hvorefter vi laver vores body: om til JSON format med vores data. (anden type text/css)
+- charset=UTF-8, bare hvad for nogen charactere vi sender?
+
+document.getElementById("updateUsername").addEventListener("click", changeUsername)
+- Tager en bare vores knap og giver den en EventListener som kalder vores metode i vores JS fil.
+
+DOCUMENT  (Document Object Model)
+- The HTML DOM document object is the owner of all other objects in your web page.
+- The document object represents your web page.
+- If you want to access any element in an HTML page, you always start with accessing the document object.
+
+location.href= "/support"
+- Redirecter os over til /support
+
+
+MOVIE DETAILS:
+checkIfMovieAlreadyWatched(localStorage.getItem('movieID'))
+- Vi henter den valgte film med localstorage, for kalder derefter vores metode som, sætter en værdi på let isWatchedMovie = null
+
+let movieRating = 3
+let isWatched = ""
+let onclickFunction = "saveMovieToWatchedList()"
+let buttonText = "Save to watched list"
+let isWatchedClass = ""
+- Det er 5 variabler jeg ændre alt efter hvad vil jeg ha der skal vises, det er variabler jeg bruger når jeg laver film div'en.
+
+movierating: parseInt(document.querySelector('.stars').getAttribute('data-rating')),
+- Henter rating fra vores stars div.
+
+localStorage.setItem('movieID', value)
+- Når vi venter en film i search movies, så sætter vi movieID i localstorage, så vi kan hente derfra i details.
+
+.map()
+- map() creates a new array from calling a function for every array element.
+- map() calls a function once for each element in an array.
+- map() does not execute the function for empty elements.
+- map() does not change the original array.
+
+.sort()
+The sorted array. Note that the array is sorted in place, and no copy is made.
+
+JWT UTIL:
+
+Vi bruger en metode der hedder .sign()
+
+Der har vi noget data, i vores tilføje giver vi userID med, som vi så kan få tilbage, så vi ved hvad user vi arbejder med.
+email secret er bare en sikkerhed, så vi kan sammenligne om det er den samme når vi verifier.
+req.params.token er den token fra URL, som vi sender i jwtconfirmemail.
+
+const result = jwt.verify retunere "{ user: 259, iat: 1642246724, exp: 1642333124 }"
+iat = issued at exp = expiration time.
+
+NODEMAILER:
+Vi laver en transporter, med vores email informationer. Det er så på den vi kan sige transpoter.sendmail(), med det info vi nu end vil sende.
+
+SOCKETS:
+Vi har sockets i contact.js <-> app.js <-> support.js, så vores app er mellemled mellem de 2 public filer.
+Så vores app lytter kun, men emitter så det svar det har fået.
+
+Vi starter med at havde en
+io.on('connection', (socket) => {
+}
+Hvor alle vores andre metoder så kører på socket.on og socket.emit.
+
+socket.broadcast.emit('chat-message-admin', { message: escape(message), name: users[socket.id], id: socket.id })
+- Til alle andre end en selv.
+- "chat-message-admin" er så det som admin lytter efter.
+
+users.splice(index, 1)
+- Fjerne disconnected user fra vores liste.
+
+e.preventDefault
+- preventDefault() The preventDefault() method of the Event interface tells the user agent that if the event does not get explicitly handled, 
+- its default action should not be taken as it normally would be
+
+SQL KEYWORDS
+SELECT * FROM movies WHERE accountsid = ?"
+UPDATE movies SET movierating = ? WHERE accountsid = ? AND movieimdb = ?
+INSERT INTO movies (movietitle, movieimdb, movieposter, movierating, accountsid) VALUES (?,?,?,?,?)
+DELETE FROM movies WHERE idmovies = ?'
+
+
+STRICT
+- JavaScript's strict mode, introduced in ECMAScript 5, is a way to opt in to a restricted variant of JavaScript, thereby implicitly opting-out of "sloppy mode".
+This strict context prevents certain actions from being taken and throws more exceptions. 
+The statement “use strict”; instructs the browser to use the Strict mode, which is a reduced and safer feature set of JavaScript.
+Strict mode eliminates some JavaScript silent errors by changing them to throw errors.
+It disables features that are confusing or poorly thought out.
+
+Data-Attribute
+The data-* attribute is used to store custom data private to the page or application.
+The data-* attribute gives us the ability to embed custom data attributes on all HTML elements.

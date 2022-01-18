@@ -21,7 +21,6 @@ router.post("/api/account/resend-verification", async (req, res) => {
 router.get('/confirmation/:token', async (req, res) => {
     try {
       const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET)
-      console.log(result)
       await accountRepo.updateIsVerified(1, result.user)
       req.session.accountID = result.user
       req.session.loggedIn = true
@@ -30,7 +29,7 @@ router.get('/confirmation/:token', async (req, res) => {
       res.sendStatus(500)
     }
   
-    return res.redirect('http://localhost:8080/search-movies')
+    res.redirect('http://localhost:8080/search-movies')
   })
 
 
@@ -41,12 +40,11 @@ router.get('/changePassword/:token', async (req, res) => {
       const result = jwt.verify(req.params.token, process.env.EMAIL_SECRET)
       req.session.accountID = result.user
       req.session.passwordBeingChanged = true
-      return res.redirect('http://localhost:8080/change-password')
+      res.redirect('http://localhost:8080/change-password')
     } catch (e) {
       res.sendStatus(500)
     }
   
-    //return res.redirect('http://localhost:8080/search-movies')
   })
 
 export default router

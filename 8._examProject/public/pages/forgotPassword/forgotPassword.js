@@ -7,7 +7,7 @@ function sendResetPasswordEmail() {
         })  
     }).then(response => {
         if (response.status === 200) {
-            document.getElementById("hidden-text").style.display = "block"
+            toastr.info("Email has been sent, please check your eamil and follow the steps")
             document.getElementById("accountName").value = ""
         } else {
             console.log("error to send email", response.status)

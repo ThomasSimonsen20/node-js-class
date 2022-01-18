@@ -18,7 +18,6 @@ socket.on('user-connected-admin', data => {
   currentClient = {id: data.id, name: data.name}
   users.push(currentClient)
   showUsers()
-  console.log(users)
 })
 
 socket.on('user-disconnected-admin', name => {
@@ -32,7 +31,7 @@ socket.on('user-disconnected-admin', name => {
 
 messageForm.addEventListener('submit', e => {
   let count = 0
-  //e.preventDefault()
+  e.preventDefault()
   users.map((user) => {
     if(user.name.toLowerCase() === correctUser.value.toLowerCase()) {
       const message = messageInput.value

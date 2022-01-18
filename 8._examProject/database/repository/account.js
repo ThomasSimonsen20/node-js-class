@@ -1,6 +1,6 @@
 import connection from "../../database/conectMysql.js"
 
-
+/*
 export async function getAccounts() {
     return await new Promise(async (resolve, reject) => {
         try {
@@ -10,7 +10,7 @@ export async function getAccounts() {
             error => reject(error)
         }
     })
-}
+} */
 
 
 export async function getAccount(accountID) {
