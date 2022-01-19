@@ -1,7 +1,7 @@
 import express from "express"
 const router = express.Router()
 
-import * as accountRepo from "../../database/repository/account.js"
+import * as accountRepo from "../../database/repository/accountRepo.js"
 import escape from "escape-html"
 import { isAuthorized } from '../../util/authentication.js'
 

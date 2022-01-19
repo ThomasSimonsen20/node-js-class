@@ -1,16 +1,4 @@
-import connection from "../../database/conectMysql.js"
-
-/*
-export async function getAccounts() {
-    return await new Promise(async (resolve, reject) => {
-        try {
-            const [rows] = await connection.execute("SELECT * FROM accounts")
-            rows ? resolve(rows) : resolve(null)
-        } catch {
-            error => reject(error)
-        }
-    })
-} */
+import connection from "../connectMysql.js"
 
 
 export async function getAccount(accountID) {

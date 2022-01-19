@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config()
 
-import * as productRepo from "../database/repository/product.js"
+import * as productRepo from "../database/repository/productRepo.js"
 
 import express from "express"
 const router = express()

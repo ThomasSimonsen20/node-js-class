@@ -4,7 +4,7 @@ dotenv.config()
 import express from "express"
 const router = express.Router()
 
-import * as accountRepo from "../../database/repository/account.js"
+import * as accountRepo from "../../database/repository/accountRepo.js"
 import * as utilJwt from "../../util/jwtUtil.js"
 import jwt from 'jsonwebtoken';
 

@@ -1,4 +1,4 @@
-import connection from "../conectMysql.js"
+import connection from "../connectMysql.js"
 
 
 export async function getMoviesFromID(accountsID) {

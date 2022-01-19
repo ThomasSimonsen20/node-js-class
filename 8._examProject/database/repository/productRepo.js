@@ -1,4 +1,4 @@
-import connection from "../../database/conectMysql.js"
+import connection from "../connectMysql.js"
 
 export async function getProduct() {
     return await new Promise(async (resolve, reject) => {
