@@ -1,7 +1,7 @@
 import dotenv from "dotenv"
 dotenv.config()
 
-import connection from "../database/conectMysql.js"
+import * as productRepo from "../database/repository/product.js"
 
 import express from "express"
 const router = express()
@@ -16,8 +16,8 @@ const cancelPage = createPages.createPageWithoutHeader("payment/cancelPage/cance
 let products
 
 async function getProduct() {
-  const [rows] = await connection.execute("SELECT * FROM product")
-  products = {id: rows[0].idproduct, priceInCents: rows[0].priceInCents, name: rows[0].name}
+  const [result] = await productRepo.getProduct()
+  products = {id: result.idproduct, priceInCents: result.priceInCents, name: result.name}
 } 
 
 router.post("/create-checkout-session", async (req,res) => {

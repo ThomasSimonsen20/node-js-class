@@ -26,7 +26,7 @@ messageForm.addEventListener('submit', e => {
   e.preventDefault()
   const message = messageInput.value
   appendMessage(`You: ${message}`)
-  socket.emit('send-message-to-admin', message)
+  socket.emit('send-message-to-support', message)
   messageInput.value = ''
 })
 

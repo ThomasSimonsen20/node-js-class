@@ -9,18 +9,18 @@ let users = []
 
 appendMessage('Waiting for user to connect')
 
-socket.on('chat-message-admin', data => {
+socket.on('chat-message-support', data => {
   appendMessage(`${data.name}: ${data.message}`)
 })
 
 
-socket.on('user-connected-admin', data => {
+socket.on('user-connected-support', data => {
   currentClient = {id: data.id, name: data.name}
   users.push(currentClient)
   showUsers()
 })
 
-socket.on('user-disconnected-admin', name => {
+socket.on('user-disconnected-support', name => {
   users.map((user, index) => {
     if(user.name.toLowerCase() === name.toLowerCase()) {
       users.splice(index, 1)

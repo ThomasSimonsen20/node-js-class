@@ -70,7 +70,6 @@ function displayMovies() {
 }
 
 function movieSelected(value) {
-    console.log(value)
     localStorage.setItem('movieID', value)
     location.href = "/movie-details"
 } 
@@ -87,7 +86,6 @@ function deleting(value){
                 location.href= "/watched-movies"
                 console.log("success")
             }
-            throw new Error('Request failed.')
         })
         .catch((error) => {
             console.log(error)

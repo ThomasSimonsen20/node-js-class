@@ -32,7 +32,7 @@ router.put("/api/account/role", isAuthorized, async (req, res) => {
     const result = await accountRepo.updateAccountRole(role, accountsid)
 
     if (result) {
-        req.session.accountRole = role
+        req.session.accountRole = parseInt(role)
         res.sendStatus(200)
     } else {
         res.sendStatus(500)

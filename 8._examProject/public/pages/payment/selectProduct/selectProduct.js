@@ -21,13 +21,10 @@ function checkout() {
         },
         body: JSON.stringify({
             items: [
-            { id: 1, quantity: 1 }
-        ],
+            { id: 1, quantity: 1 }],
         }),
         })
-        .then(res => {
-            if (res.ok) return res.json()
-        })
+        .then(res => res.json())
         .then(({ url }) => {
             window.location = url
         })
@@ -51,4 +48,3 @@ function sendLink() {
     })
 }
 
-//document.getElementById("upgradeButton").addEventListener("click", checkout);

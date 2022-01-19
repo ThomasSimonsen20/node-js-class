@@ -50,16 +50,16 @@ const users = {}
 io.on('connection', (socket) => {
   socket.on('new-user', name => {
     users[socket.id] = escape(name)
-    socket.broadcast.emit('user-connected-admin', {name: escape(name), id: socket.id})
+    socket.broadcast.emit('user-connected-support', {name: escape(name), id: socket.id})
   })
-  socket.on('send-message-to-admin', (message) => {
-    socket.broadcast.emit('chat-message-admin', { message: escape(message), name: users[socket.id], id: socket.id })
+  socket.on('send-message-to-support', (message) => {
+    socket.broadcast.emit('chat-message-support', { message: escape(message), name: users[socket.id], id: socket.id })
   })
   socket.on('send-chat-message-client', (message, currentClient) => {
     socket.to(currentClient).emit('chat-message', { message: escape(message), name: "Support" })
   })
   socket.on('disconnect', () => {
-    socket.broadcast.emit('user-disconnected-admin', users[socket.id])
+    socket.broadcast.emit('user-disconnected-support', users[socket.id])
     delete users[socket.id]
   })
 }) 
